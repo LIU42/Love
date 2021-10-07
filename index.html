@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+	<meta charset="utf-8">
+
+	<title>~喜欢你呀~</title>
+
+	<style>
+		
+		
+	    #yes,#no {display:block;
+		      text-decoration:none;
+		      color:#FFFFFF;
+		      background-color:#EE82EE;
+		      width:220px;
+		      height:90px;
+		      line-height:90px;
+		      border:0px;
+		      border-radius:10px;
+		      font-size:50px;
+		      font-weight:bold;
+		      text-align:center;}
+
+	    #exit {width:50px;
+		   height:50px;
+		   border:0px;
+		   border-radius:50%;
+		   background-color:#FEFEFE;
+		   position:absolute;
+		   top:5px;
+		   right:5px;
+		   line-height:50px;
+		   text-align:center;
+		   font-size:60px;}
+
+	    #exit:hover{background-color:#800080;
+			color:#FEFEFE;}
+
+	    .box {width:360px;
+		  height:320px;}
+ 
+            .round1 {width:200px;
+                     height:200px;
+                     border-radius:50%;
+                     background-color:#FFC5D0;
+                     position:absolute;
+                     left:0px;
+                     top:0px;}
+ 
+	    .round2 {width:200px;
+                     height:200px;
+                     border-radius:50%;
+                     background-color:#FFC5D0;
+                     position:absolute;
+                     right:0px;
+                     top:0px;}
+ 
+            .bottom {width:200px;
+                     height:200px;
+                     background-color:#FFC5D0;
+                     position:absolute;
+                     top:79px;
+                     left:80px;
+                     transform:rotate(45deg);}
+
+	    .b {width:45px;
+		height:40px;
+		transition:opacity 2.5s;
+		transition-timing-function:linear;
+		opacity:0;
+		position:absolute;}
+
+	    .r1 {width:25px;
+		 height:25px;
+		 border-radius:50%;
+		 background-color:#FF1493;
+		 position:absolute;
+		 top:0px;
+		 left:0px;}
+
+	    .r2 {width:25px;
+		 height:25px;
+		 border-radius:50%;
+		 background-color:#FF1493;
+		 position:absolute;
+		 top:0px;
+		 right:0px;}
+
+	    .m {width:25px;
+		height:25px;
+		background-color:#FF1493;
+		position:absolute;
+		top:10.8px;
+		left:10px;
+		transform:rotate(45deg);}
+
+	    .main {width:800px;
+                   height:300px;
+		   border:4px solid #DDA0DD;
+	           border-radius:10px;
+		   box-shadow:5px 5px 5px rgba(0,0,0,0.3);
+		   position:absolute;
+		   top:0px;
+		   left:0px;
+		   background-color:#FEFEFE;}
+
+	    .up {width:804px;
+	         height:63px;
+                 position:absolute;
+	         top:-1px;
+	         left:-1px;
+	         border-radius:7px 7px 0 0;
+	         background-color:#DDA0DD;}
+
+	    .txt {width:800px;
+	          height:238px;
+	          position:absolute;
+	          bottom:0px;
+	          left:0px;
+	          line-height:238px;
+	          text-align:center;
+	          font-weight:bold;
+	          font-family:Arial,Helvetica,sans-serif;}
+
+	    button:focus{outline:0;}
+
+	</style>
+
+	<script src="jquery-3.4.1.min.js"></script>
+
+	<script>
+
+	    var num = 1;
+
+	    function active(name)
+	    {
+		$("#"+name).css("background-color","#800080");
+	    }
+
+	    function back(name)
+	    {
+		$("#"+name).css("background-color","#EE82EE");
+	    }
+
+	    function xxx()
+	    {
+		$("#grey").fadeOut(200);
+		$("#win").fadeOut(200);
+	    }
+
+	    function yes()
+	    {
+		document.getElementById("exit")
+			.onclick=function()
+			{window.open("fireworks.html","_self")};
+		document.getElementById("txt")
+			.innerHTML="就知道你一定会同意的！"
+
+		$("#grey").css("opacity","0.3");
+		$("#win").css("opacity","1");
+		$("#grey").fadeIn(200);
+		$("#win").fadeIn(200);
+	    }
+
+	    function no()
+	    {
+		if (num < 10)
+		{
+		    $("#text").fadeOut(200);
+		    setTimeout("change()",200);
+		    $("#text").fadeIn(200);
+		}
+		else{change();}
+	    }
+
+	    function change()
+	    {
+		if (num == 1)
+		{
+		    document.getElementById("text")
+			    .innerHTML=''+
+		'	你的出现<br>'+
+		'	是上天给我最好的礼物';
+		}
+		if (num == 2)
+		{
+		    document.getElementById("text")
+			    .innerHTML=''+
+		'	<h4>每天要做的事:</h4>'+
+		'	<ul>'+
+	        '	    <li>想你想你~</li>'+
+		'	    <li>爱你爱你~</li>'+
+		'	    <li>喜欢你~</li>'+
+		'	</ul>';
+		}
+		if (num == 3)
+		{
+		    document.getElementById("text")
+			    .innerHTML="永远给你最好的！";
+		}
+		if (num == 4)
+		{	
+		    document.getElementById("text")
+			    .innerHTML="春风十里不如你~";
+		}
+		if (num == 5)
+		{
+		    document.getElementById("text")
+			    .innerHTML=''+
+		'	愿得一人心<br>'+
+		'	白首不相离';
+		}
+		if (num == 6)
+		{	
+		    document.getElementById("text")
+			    .innerHTML=''+
+		'	你的过去<br>'+
+		'	我来不及参与<br>'+
+		'	你的未来<br>'+
+		'	我奉陪到底';
+		}
+		if (num == 7)
+		{
+		    document.getElementById("text")
+			    .innerHTML=''+
+		'	答案很长<br>'+
+		'	我准备用余生的时间<br>'+
+		'	给你答案';
+		}
+		if (num == 8)
+		{
+		    document.getElementById("text")
+			    .innerHTML="不说分手~";
+		}
+		if (num == 9)
+		{
+		    document.getElementById("text")
+			    .innerHTML="好不好嘛~";
+		}
+		if (num >= 10)
+		{
+		    $("#grey").css("opacity","0.3");
+		    $("#win").css("opacity","1");
+		    $("#grey").fadeIn(200);
+		    $("#win").fadeIn(200);
+		}
+		num = num + 1;
+	    }
+
+	</script>
+
+	<script>
+
+	    function getrandomint(min,max)
+            {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random()*(max-min))+min;
+            }
+
+	    function star(n)
+	    {
+		var x = getrandomint(10,90);
+		var y = getrandomint(10,90);
+		var a = getrandomint(-30,30);
+
+		document.getElementById("star"+n+"")
+			.style.top=""+x+"%";
+		document.getElementById("star"+n+"")
+			.style.left=""+y+"%";
+		document.getElementById("star"+n+"")
+			.style.transform="rotate("+a+"deg)";
+		
+		document.getElementById("star"+n+"")
+			.style.opacity=1;
+		setTimeout(function()
+		    {document.getElementById("star"+n+"")
+			     .style.opacity=0;},2500);
+	    }
+
+	    function mainx(n)
+	    {
+		star(n);
+		setInterval(function(){star(n);},5000);
+	    }
+
+	    function main()
+	    {
+		$("#grey").hide();
+		$("#win").hide();
+
+		setTimeout("mainx(1)",0);
+		setTimeout("mainx(2)",1000);
+		setTimeout("mainx(3)",2000);
+		setTimeout("mainx(4)",3000);
+		setTimeout("mainx(5)",4000);
+	    }
+
+	</script>
+
+    </head>
+
+    <body onload="main()"
+	  style="background-color:#FFB6C1;
+		 width:1000px;
+		 overflow:hidden;">
+
+	<div class="box"
+	     style="position:absolute;
+		    top:53%;
+		    left:-7%;
+		    transform:rotate(-10deg);">
+
+	    <div class="round1"></div>
+	    <div class="round2"></div>
+	    <div class="bottom"></div>
+
+	</div>
+
+	<div class="box"
+	     style="position:absolute;
+		    bottom:10%;
+		    right:10%;
+		    transform:rotate(12deg);">
+
+	    <div class="round1"></div>
+	    <div class="round2"></div>
+	    <div class="bottom"></div>
+
+	</div>
+
+	<div class="box"
+	     style="position:absolute;
+		    top:12%;
+		    left:40%;
+		    transform:rotate(-5deg);">
+
+	    <div class="round1"></div>
+	    <div class="round2"></div>
+	    <div class="bottom"></div>
+
+	</div>
+
+	<div style="width:100%;
+		    height:0px;
+		    position:absolute;
+		    top:20%;
+		    left:0px;">
+
+	    <div id="table" 
+		 style="width:850px;
+			height:500px;
+			border:5px solid #FF69B4;
+			border-radius:20px;
+			position:absolute;
+			top:0px;
+			left:50%;
+			margin-left:-430px;
+			background-color:#FFFFFF;">
+
+		<div style="width:300px;
+			    height:299px;
+			    position:absolute;
+			    top:101px;
+			    right:25px;">
+
+		    <img src="material/love.gif"
+			 width="300" height="299">
+
+		</div>
+
+		<div style="width:300px;
+			    height:350px;
+			    font-size:30px;
+			    font-weight:700;
+			    line-height:180%;
+			    text-align:left;
+			    position:absolute;
+			    top:100px;
+			    right:325px;">
+
+		    <p id="text"
+		       style="font-family:Arial,Helvetica,
+					  sans-serif;">
+
+			我喜欢你~<br>做我女朋友吧！
+
+		    </p>
+
+		</div>
+
+	    </div>
+
+	    <div id="button">
+
+		<button id="yes"
+			type="button"
+			onclick="yes()"
+			ontouchstart="active('yes')"
+			ontouchend="back('yes')"
+			style="position:absolute;
+			       top:600px;
+			       left:50%;
+			       margin-left:-350px;">
+
+		    好呀
+
+		</button>
+
+		<button id="no"
+			type="button"
+			onclick="no()"
+			ontouchstart="active('no')"
+			ontouchend="back('no')"
+			style="position:absolute;
+			       top:600px;
+			       right:50%;
+			       margin-right:-350px;">
+		    
+		    不行
+
+		</button>
+
+	    </div>
+
+	</div>
+
+	<div id="star1"
+	     class="b">
+
+	    <div class="r1"></div>
+	    <div class="r2"></div>
+	    <div class="m"></div>
+
+	</div>
+
+	<div id="star2"
+	     class="b">
+
+	    <div class="r1"></div>
+	    <div class="r2"></div>
+	    <div class="m"></div>
+
+	</div>
+
+	<div id="star3"
+	     class="b">
+
+	    <div class="r1"></div>
+	    <div class="r2"></div>
+	    <div class="m"></div>
+
+	</div>
+
+	<div id="star4"
+	     class="b">
+
+	    <div class="r1"></div>
+	    <div class="r2"></div>
+	    <div class="m"></div>
+
+	</div>
+
+	<div id="star5"
+	     class="b">
+
+	    <div class="r1"></div>
+	    <div class="r2"></div>
+	    <div class="m"></div>
+
+	</div>
+
+	<div id="grey"
+	     style="width:100%;
+		    height:100%;
+		    position:absolute;
+		    top:0px;
+		    left:0px;
+		    background-color:#000000;
+		    opacity:0;">
+
+	</div>
+
+	<div id="win"
+             style="width:808px;
+                    height:308px;
+                    position:absolute;
+		    top:50%;
+		    margin-top:-154px;
+                    left:50%;
+                    margin-left:-404px;
+		    opacity:0;">
+
+	    <div class="main">
+                
+		<div class="up"></div>
+
+		<button id="exit"
+			type="button"
+			onclick="xxx()">×</button>
+
+		<div id="txt"
+		     class="txt"
+		     style="font-size:30px;">
+
+		    哼！你不同意我就赖着不走了~
+
+		</div>
+
+	    </div>
+        
+	</div>
+
+    </body>
+
+</html>

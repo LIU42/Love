@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+	<meta charset="utf-8">
+
+	<title>fireworks</title>
+
+	<style>
+
+	    html {height:100%}
+
+	    body {background-image:
+                  linear-gradient(to bottom,#000000,#202020 100%);
+                  background-repeat:repeat-x;
+                  background-size:cover;
+                  height:80%;}
+
+	    .table {width:600px;
+                    height:1200px;
+                    position:absolute;
+                    bottom:60px;
+                    left:50%;
+                    margin-left:-300px;
+                    transform-origin:bottom;
+                    overflow:hidden;}
+
+	    #start1 {width:6px;
+                     height:200px;
+                     position:absolute;
+                     top:1200px;
+                     left:50%;
+                     margin-left:-3px;
+                     border-top-left-radius:3px 6px;
+                     border-top-right-radius:3px 6px;
+                     border-bottom-left-radius:3px 170px;
+                     border-bottom-right-radius:3px 170px;
+                     animation:start1 1.2s;
+                     animation-delay:0s;
+		     animation-timing-function:linear;}
+
+	    #start2 {width:6px;
+                     height:200px;
+                     position:absolute;
+                     top:1200px;
+                     left:50%;
+                     margin-left:-3px;
+                     border-top-left-radius:3px 6px;
+                     border-top-right-radius:3px 6px;
+                     border-bottom-left-radius:3px 170px;
+                     border-bottom-right-radius:3px 170px;
+                     animation:start2 1.2s;
+                     animation-delay:0s;
+		     animation-timing-function:linear;}
+
+	    .works {width:600px;
+		    height:600px;
+		    position:absolute;
+		    top:0px;
+		    left:0px;
+		    overflow:hidden;}
+
+	    #flames {width:300px;
+		     height:10px;
+		     position:absolute;
+		     top:300px;
+		     left:50%;
+		     margin-top:-5px;
+		     transform-origin:left;
+		     overflow:hidden;}
+
+	    #fire {width:65%;
+		   height:4px;
+		   position:absolute;
+		   top:3px;
+		   right:100%;
+		   border-top-left-radius:90% 2px;
+                   border-top-right-radius:3px 2px;
+                   border-bottom-left-radius:90% 2px;
+                   border-bottom-right-radius:3px 2px;}
+
+	</style>
+
+	<style id="xxx1"></style>
+	<style id="xxx2"></style>
+
+	<script src="jquery-3.4.1.min.js"></script>
+
+	<script>
+
+	    var n = 0;
+	    var m = 0;
+
+	    function getrandomint(min,max)
+	    {
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random()*(max-min))+min;
+	    }
+
+	    function piece(x)
+	    {
+		if (x == 1)
+		{
+		    var w = n;
+		    n = n + 1;
+		    $("#table1").fadeIn(0);
+		}
+		if (x == 2)
+		{
+		    var w = m;
+		    m = m + 1;
+		    $("#table2").fadeIn(0);
+		}
+
+		var h = getrandomint(300,600);
+		var H = h-300;
+		var a = getrandomint(-10,10);
+		var b = getrandomint(0,360);
+		var t = (1200-h)/600;
+		var T = t*1000 + 200;
+
+		var c = getrandomint(0,7);
+		if (c == 0){var cl = "#FFFFFF";}
+		if (c == 1){var cl = "#FF0000";}
+		if (c == 2){var cl = "#FFFF00";}
+		if (c == 3){var cl = "#00BFFF";}
+		if (c == 4){var cl = "#00FF00";}
+		if (c == 5){var cl = "#A000A0";}
+		if (c == 6){var cl = "#FFA500";}
+
+		document.getElementById("table"+x+"")
+			.style.transform="rotate("+a+"deg)";
+		document.getElementById("works"+x+"")
+			.style.transform="rotate("+b+"deg)";
+		document.getElementById("works"+x+"")
+			.style.top=""+H+"px";
+		document.getElementById("start"+x+"")
+			.style.animation="start"+x+""+w+" "+t+"s";
+		document.getElementById("start"+x+"")
+			.style.animationDelay="0s";
+		document.getElementById("start"+x+"")
+			.style.animationTimingFunction="linear";
+		document.getElementById("start"+x+"")
+			.style.backgroundImage=''+
+		    'linear-gradient(to bottom,'+cl+',#202020)';
+
+		document.getElementById("xxx"+x+"")
+			.innerHTML=''+
+		'.fire'+x+' {background-image:'+
+                '	 linear-gradient(to left,'+cl+',#050505);'+
+                '	 animation:fire'+x+''+w+' 1.2s;'+
+		'	 animation-delay:'+t+'s;'+
+		'	 animation-timing-function:ease-out;}'+
+		''+
+		'@keyframes start'+x+''+w+''+
+		'{'+	    
+		'0% {top:1200px;}'+
+		''+
+		'100% {top:'+h+'px;}'+
+		'}'+
+		''+ 
+		'@keyframes fire'+x+''+w+''+
+		'{'+
+		'0% {right:100%;}'+
+		''+
+		'100% {right:0%;}'+
+		'}';
+
+		if (x == 1)
+		{
+		    setTimeout("$('#table1').fadeOut(950)",T);
+		}
+		if (x == 2)
+		{
+		    setTimeout("$('#table2').fadeOut(950)",T);
+		}
+	    }
+
+	</script>
+
+	<script>
+
+	    function mainx(x)
+	    {
+		piece(x);
+		setInterval(function(){piece(x);},2500);
+	    }
+
+	    function main()
+	    {
+		setTimeout("mainx(1)",0);
+		setTimeout("mainx(2)",1000);
+	    }
+
+	</script>
+
+    </head>
+
+    <body onload="main()"
+	  style="width:1000px;
+		 height:auto;
+		 overflow:hidden;">
+
+	<div class="table"
+	     id="table1"
+	     style="transform:rotate(0deg);">
+
+	    <div class="works"
+		 id="works1"
+		 style="transform:rotate(0deg)">
+
+		<div id="flames"
+		     style="transform:rotate(0deg);
+			    width:300px;">
+		    
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(24deg);
+			    width:200px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>  
+
+		<div id="flames"
+		     style="transform:rotate(48deg);
+			    width:250px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(72deg);
+			    width:300px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(96deg);
+			    width:150px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(120deg);
+			    width:220px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(144deg);
+			    width:190px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(168deg);
+			    width:280px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(192deg);
+			    width:300px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(216deg);
+			    width:200px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(240deg);
+			    width:260px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(264deg);
+			    width:160px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(288deg);
+			    width:300px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(312deg);
+			    width:220px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+		<div id="flames" 
+		     style="transform:rotate(336deg);
+			    width:250px;">
+
+		    <div id="fire" class="fire1"></div>
+
+		</div>
+
+	    </div>
+
+	    <div id="start1"
+		 style="background-image:
+			linear-gradient(to bottom,#FFFFFF,#202020)">
+	    
+	    </div>
+
+	</div>
+
+	<div class="table"
+	     id="table2"
+	     style="transform:rotate(0deg);">
+
+	    <div class="works"
+		 id="works2"
+		 style="transform:rotate(0deg)">
+
+		<div id="flames"
+		     style="transform:rotate(0deg);
+			    width:300px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(24deg);
+			    width:200px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(48deg);
+			    width:250px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(72deg);
+			    width:300px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(96deg);
+			    width:150px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(120deg);
+			    width:220px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(144deg);
+			    width:190px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(168deg);
+			    width:280px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(192deg);
+			    width:300px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(216deg);
+			    width:200px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(240deg);
+			    width:260px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(264deg);
+			    width:160px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(288deg);
+			    width:300px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(312deg);
+			    width:220px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+		<div id="flames"
+		     style="transform:rotate(336deg);
+			    width:250px;">
+
+		    <div id="fire" class="fire2"></div>
+
+		</div>
+
+	    </div>
+
+	    <div id="start2"
+		 style="background-image:
+			linear-gradient(to bottom,#FFFFFF,#202020)">
+
+	    </div>
+
+	</div>
+
+    </body>
+
+</html>
