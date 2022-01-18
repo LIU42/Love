@@ -1,0 +1,151 @@
+/*love.css*/
+
+#body {background-color: #FFB6C1;
+       margin: 0px;
+       padding: 0px;
+       border: 0px;
+       overflow: hidden;}
+
+#table {background-color: #FFFFFF00;
+        position: absolute;
+        margin: 0px;
+        padding: 0px;
+        border: 0px;}
+
+#window {width: 80%;
+         height: 35%;
+         background-color: #FFFFFF30;
+         border-radius: 1vh;
+         position: absolute;
+         top: 15%;
+         left: 10%;}
+
+#img {width: 30%;
+      height: 50%;
+      position: absolute;
+      top: 25%;
+      left: 65%;
+      opacity: 0.9;}
+
+#text {width: 45%;
+       height: 75%;
+       position: absolute;
+       top: 25%;
+       left: 20%;
+       opacity: 0.9;
+       font-weight: 700;
+       line-height: 180%;
+	text-align: left;}
+
+.button {width: 25%;
+         height: 9%;
+         position: absolute;
+         top: 70%;
+         background-color: #EE82EEAA;
+         color: #FFFFFF;
+         overflow: hidden;
+         text-decoration: none;
+         text-align: center;
+         border: none;
+         border-radius: 1.5vh;
+         line-height: 100%;
+         font-weight: bold;}
+
+.click_radius {width: 0px;
+               height: 0px;
+               background-color: #EE82EE;
+               position: absolute;
+               top: 0px;
+               left: 0px;
+               border-radius: 50%;}
+
+.heart {width: 20vh;
+        height: 20%;
+        opacity: 0.1;
+        position: absolute;}
+
+.heart_block {width: 67%;
+              height: 67%;
+              position: absolute;
+              left: 0%;
+              bottom: 0%;
+              background-color: #FF1493;}
+
+.heart_radius1 {width: 67%;
+                height: 67%;
+                position: absolute;
+                top: 0%;
+                left: 0%;
+                background-color: #FF1493;
+                border-radius: 50%;}
+
+.heart_radius2 {width: 67%;
+                height: 67%;
+                position: absolute;
+                right: 0%;
+                bottom: 0%;
+                background-color: #FF1493;
+                border-radius: 50%;}
+
+#heart1 {top: 5%;
+         left: 30%;
+         transform: rotate(-68deg);}
+
+#heart2 {top: 30%;
+         left: -2%;
+         transform: rotate(-30deg);}
+
+#heart3 {top: 65%;
+         right: 5%;
+         transform: rotate(-38deg);}
+
+button:focus{outline: 0;}
+
+#yes {left: 15%;}
+
+#no {right: 15%;}
+
+#dark {display: none;
+       width: 100%;
+       height: 100%;
+       position: absolute;
+       top: 0%;
+       left: 0%;
+       background-color: #000000AA;}
+
+#alert {position: absolute;
+        top: 50%;
+        left: 50%;
+        border: 0px;
+        border-radius: 1vh;
+        background-color: #FFFFFFDD;
+        box-shadow: 1vh 1vh 1vh #00000040;}
+
+#exit {display: block;
+       position: absolute;
+       border: 0px;
+       border-radius: 50%;
+       background-color: #FFFFFF00;
+       color: #000000;
+       line-height: 100%;
+       text-align: center;}
+
+#inform {width: 100%;
+         height: 10%;
+         position: absolute;
+         top: 45%;
+         left: 0px;
+         margin: 0px;
+         font-weight: bold;
+         text-align: center;
+         line-height: 100%;}
+
+.meteor {opacity: 0;
+         position: absolute;
+         top: 10%;
+         right: 10%;
+         background-image: linear-gradient(to right,#FFFFFFFF,#FFFFFF00);
+         border: 0px;
+         border-top-right-radius: 70%;
+         border-bottom-right-radius: 70%;
+         transform: rotate(-45deg);}

@@ -1,0 +1,67 @@
+/*fireworks.css*/
+
+html {height: 100%;}
+
+#body {background-image: linear-gradient(to bottom,#000000,#202020 100%);
+       background-repeat: repeat-x;
+       background-size: cover;
+       height: 100%;
+       margin: 0px;
+       overflow: hidden;}
+
+.table {position: absolute;
+        bottom: 0px;
+        transform-origin: bottom center;}
+
+.fire_zone {width: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transform-origin: center;}
+
+.path {width: 1%;
+       position: absolute;
+       bottom: 0px;
+       left: 49.5%;}
+
+.path_work {width: 100%;
+            position: absolute;
+            top :100%;
+            left: 0px;
+            border: 0px;
+            border-bottom-right-radius: 60%;
+            border-bottom-left-radius: 60%;
+            opacity: 1;}
+
+.zone_path {height: 1%;
+            position: absolute;
+            top: 49.5%;
+            left: 50%;
+            transform-origin: left center;
+            overflow: hidden;}
+
+.zone_path0 {transform: rotate(0deg); width: 100%;}
+.zone_path1 {transform: rotate(24deg); width: 66.6%;}
+.zone_path2 {transform: rotate(48deg); width: 83.2%;}
+.zone_path3 {transform: rotate(72deg); width: 100%;}
+.zone_path4 {transform: rotate(96deg); width: 50%;}
+.zone_path5 {transform: rotate(120deg); width: 73.2%;}
+.zone_path6 {transform: rotate(144deg); width: 63.2%;}
+.zone_path7 {transform: rotate(168deg); width: 93.2%;}
+.zone_path8 {transform: rotate(192deg); width: 100%;}
+.zone_path9 {transform: rotate(216deg); width: 66.6%;}
+.zone_path10 {transform: rotate(240deg); width: 86.6%;}
+.zone_path11 {transform: rotate(264deg); width: 53.2%;}
+.zone_path12 {transform: rotate(288deg); width: 100%;}
+.zone_path13 {transform: rotate(312deg); width: 73.3%;}
+.zone_path14 {transform: rotate(336deg); width: 83.2%;}
+
+.zone_work {width: 40%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            right: 100%;
+            border: 0px;
+            border-top-left-radius: 60%;
+            border-bottom-left-radius: 60%;
+            opacity: 1;}
