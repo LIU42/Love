@@ -9,18 +9,6 @@ var alpha_max = 10;
 var uptime_standard = 1500;
 var flame_time = 1200;
 
-function get_random_num(min,max)
-{
-    return Math.random()*(max-min)+min;
-}
-
-function get_random_int(min,max)
-{
-    min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random()*(max-min))+min;
-}
-
 function remove_firework()
 {
     for (var i=0;i<firework_count-firework_onscreen;i++)
@@ -33,16 +21,16 @@ function firework()
 {
     var screen_width = $("#body").width();
     var screen_height = $("#body").height();
-    var num = Math.random();
+    var num = random();
 
     if (num < p_firework)
     {
-        var p = get_random_num(0.5,1);
+        var p = randfloat(0.5,1,2);
         var height = screen_height * p;
         var uptime = uptime_standard * p;
-        var alpha = get_random_int(-alpha_max,alpha_max);
-        var beta = get_random_int(0,360);
-        var color = color_list[get_random_int(0,7)];
+        var alpha = randint(-alpha_max,alpha_max);
+        var beta = randint(0,360);
+        var color = randchoice(color_list);
 
         $("#body").append(''+
         '<div class="table" id="firework' + firework_count + '">'+

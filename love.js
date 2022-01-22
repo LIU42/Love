@@ -19,11 +19,6 @@ var meteor_time_standard = 2500;
 var button_status = "normal";
 var button_broken_time = 2500;
 
-function get_random_num(min,max)
-{
-    return Math.random()*(max-min)+min;
-}
-
 function init_screen()
 {
     var screen_width = window.innerWidth;
@@ -99,7 +94,7 @@ function active(name,mouse)
 
 function change_text()
 {
-    if (text_code <= 9)
+    if (text_code <= 10)
     {
         $("#text").fadeOut(text_change_time);
 		setTimeout(function()
@@ -111,7 +106,7 @@ function change_text()
             }
             else if (text_code == 2)
             {
-                text.innerHTML = "每天要做的事:<ul><li>想你想你~</li><li>爱你爱你~</li><li>喜欢你~</li></ul>";
+                text.innerHTML = "每天要做的事:<ul><li>想你想你~</li><li>爱你爱你~</li></ul>";
             }
             else if (text_code == 3)
             {
@@ -127,13 +122,17 @@ function change_text()
             }
             else if (text_code == 6)
             {
-                text.innerHTML = "你的过去<br>我来不及参与<br>你的未来<br>我奉陪到底";
+                text.innerHTML = "斯人若彩虹<br>遇上方知有";
             }
             else if (text_code == 7)
             {
-                text.innerHTML = "答案很长<br>我准备用余生的时间<br>给你答案";
+                text.innerHTML = "你的过去<br>我来不及参与<br>你的未来<br>我奉陪到底";
             }
             else if (text_code == 8)
+            {
+                text.innerHTML = "答案很长<br>我准备用余生的时间<br>给你答案";
+            }
+            else if (text_code == 9)
             {
                 text.innerHTML = "不说分手~";
             }
@@ -169,12 +168,12 @@ function remove_meteor()
 
 function meteor()
 {
-    var num = Math.random();
+    var num = random();
     if (num < p_meteor)
     {
-        var p = get_random_num(0.8,1.5);
-        var top = get_random_num(0,50);
-        var right = get_random_num(0,50);
+        var p = randfloat(0.8,1.5,2);
+        var top = randint(0,50);
+        var right = randint(0,50);
         var width = $("#window").width();
         var height = $("#window").height();
         var distance = width * p;
