@@ -100,45 +100,18 @@ function change_text()
 		setTimeout(function()
         {
             text = document.getElementById("text");
-            if (text_code == 1)
+            switch (text_code)
             {
-                text.innerHTML = "你的出现<br>是上天给我最好的礼物";
-            }
-            else if (text_code == 2)
-            {
-                text.innerHTML = "每天要做的事:<ul><li>想你想你~</li><li>爱你爱你~</li></ul>";
-            }
-            else if (text_code == 3)
-            {
-                text.innerHTML = "永远给你最好的!";
-            }
-            else if (text_code == 4)
-            {
-                text.innerHTML = "春风十里不如你~";
-            }
-            else if (text_code == 5)
-            {
-                text.innerHTML = "愿得一人心<br>白首不相离";
-            }
-            else if (text_code == 6)
-            {
-                text.innerHTML = "斯人若彩虹<br>遇上方知有";
-            }
-            else if (text_code == 7)
-            {
-                text.innerHTML = "你的过去<br>我来不及参与<br>你的未来<br>我奉陪到底";
-            }
-            else if (text_code == 8)
-            {
-                text.innerHTML = "答案很长<br>我准备用余生的时间<br>给你答案";
-            }
-            else if (text_code == 9)
-            {
-                text.innerHTML = "不说分手~";
-            }
-            else
-            {
-                text.innerHTML = "好不好嘛~";
+                case 1: text.innerHTML = "你的出现<br>是上天给我最好的礼物"; break;
+                case 2: text.innerHTML = "每天要做的事:<ul><li>想你想你~</li><li>爱你爱你~</li></ul>"; break;
+                case 3: text.innerHTML = "永远给你最好的!"; break;
+                case 4: text.innerHTML = "春风十里不如你~"; break;
+                case 5: text.innerHTML = "愿得一人心<br>白首不相离"; break;
+                case 6: text.innerHTML = "斯人若彩虹<br>遇上方知有"; break;
+                case 7: text.innerHTML = "你的过去<br>我来不及参与<br>你的未来<br>我奉陪到底"; break;
+                case 8: text.innerHTML = "答案很长<br>我准备用余生的时间<br>给你答案"; break;
+                case 9: text.innerHTML = "不说分手~"; break;
+                default: text.innerHTML = "好不好嘛~"; break;
             }
             text_code += 1;
         },text_change_time);
