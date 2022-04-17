@@ -1,5 +1,3 @@
-//love.js
-
 var table_proportion = 0.75;
 var table_width = 750;
 var table_height = 1000;

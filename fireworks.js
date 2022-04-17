@@ -1,5 +1,3 @@
-//fireworks.js
-
 var color_list = ["#FFFFFF","#FF0000","#FFFF00","#00BFFF","#00FF00","#A000A0","#FFA500"];
 var p_firework = 0.5;
 var firework_onscreen = 6;
