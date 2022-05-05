@@ -1,12 +1,4 @@
-//random.js
-
-//  提供一些对于随机数的常用方法
-//  以提高编程的效率
-
-function random()
-{
-    return Math.random();
-}
+function random() { return Math.random(); }
 
 function randint(min,max)
 {

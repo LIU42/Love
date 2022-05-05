@@ -212,9 +212,6 @@ function main()
     $("#exit").click(function()
     {
         $("#dark").fadeOut(alert_change_time);
-        if (click_status == "yes")
-        {
-            window.open("fireworks.html","_self");
-        }
+        if (click_status == "yes") { window.open("fireworks.html","_self"); }
     });
 }
