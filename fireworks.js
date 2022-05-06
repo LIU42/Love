@@ -9,9 +9,9 @@ var flame_time = 1200;
 
 function remove_firework()
 {
-    for (var i=0;i<firework_count-firework_onscreen;i++)
+    for (var i = 0; i < firework_count - firework_onscreen; i++)
     {
-        $("#firework"+i).remove();
+        $("#firework" + i).remove();
     }
 }
 
@@ -23,11 +23,11 @@ function firework()
 
     if (num < p_firework)
     {
-        var p = randfloat(0.5,1,2);
+        var p = randfloat(0.5, 1, 2);
         var height = screen_height * p;
         var uptime = uptime_standard * p;
-        var alpha = randint(-alpha_max,alpha_max);
-        var beta = randint(0,360);
+        var alpha = randint(-alpha_max, alpha_max);
+        var beta = randint(0, 360);
         var color = randchoice(color_list);
 
         $("#body").append(''+
@@ -84,29 +84,29 @@ function firework()
             '</div>'+
         '</div>');
 
-        $("#firework" + firework_count).css("height",height + "px");
-        $(".table").css("width",screen_height * 0.5 + "px");
-        $(".table").css("left",(screen_width - screen_height * 0.5) * 0.5 + "px");
-        $(".fire_zone").css("height",$(".table").width());
+        $("#firework" + firework_count).css("height", height + "px");
+        $(".table").css("width", screen_height * 0.5 + "px");
+        $(".table").css("left", (screen_width - screen_height * 0.5) * 0.5 + "px");
+        $(".fire_zone").css("height", $(".table").width());
 
-        $("#path" + firework_count).css("height",height - $(".table").width()/2 + "px");
-        $(".path_work").css("height",$(".path").width() * 30 + "px");
-        $(".path_work").css("border-top-left-radius",$(".path").width() + "px");
-        $(".path_work").css("border-top-right-radius",$(".path").width() + "px");
+        $("#path" + firework_count).css("height", height - $(".table").width() / 2 + "px");
+        $(".path_work").css("height", $(".path").width() * 30 + "px");
+        $(".path_work").css("border-top-left-radius", $(".path").width() + "px");
+        $(".path_work").css("border-top-right-radius", $(".path").width() + "px");
 
-        $(".zone_work").css("border-top-right-radius",$(".zone_path").height() + "px");
-        $(".zone_work").css("border-bottom-right-radius",$(".zone_path").height() + "px");
+        $(".zone_work").css("border-top-right-radius", $(".zone_path").height() + "px");
+        $(".zone_work").css("border-bottom-right-radius", $(".zone_path").height() + "px");
 
-        $("#firework" + firework_count).css("transform","rotate(" + alpha + "deg)");
-        $("#zone" + firework_count).css("transform","rotate(" + beta + "deg)");
-        $("#path_work" + firework_count).css("background-image","linear-gradient(to bottom," + color + "FF," + color + "00 100%)");
-        $(".zone_work" + firework_count).css("background-image","linear-gradient(to left," + color + "FF," + color + "00 100%)");
+        $("#firework" + firework_count).css("transform", "rotate(" + alpha + "deg)");
+        $("#zone" + firework_count).css("transform", "rotate(" + beta + "deg)");
+        $("#path_work" + firework_count).css("background-image", "linear-gradient(to bottom," + color + "FF," + color + "00 100%)");
+        $(".zone_work" + firework_count).css("background-image", "linear-gradient(to left," + color + "FF," + color + "00 100%)");
 
-        $("#path_work" + firework_count).animate({top: "0%"},uptime,"linear");
-        $("#path_work" + firework_count).animate({opacity: "0"},0,"linear");
-        $(".zone_work" + firework_count).animate({right: "100%"},uptime,"linear");
-        $(".zone_work" + firework_count).animate({right: "70%"},flame_time/2,"linear");
-        $(".zone_work" + firework_count).animate({right: "40%",opacity: "0"},flame_time/2,"linear");
+        $("#path_work" + firework_count).animate({top: "0%"}, uptime, "linear");
+        $("#path_work" + firework_count).animate({opacity: "0"}, 0, "linear");
+        $(".zone_work" + firework_count).animate({right: "100%"}, uptime, "linear");
+        $(".zone_work" + firework_count).animate({right: "70%"}, flame_time / 2, "linear");
+        $(".zone_work" + firework_count).animate({right: "40%", opacity: "0"}, flame_time / 2, "linear");
 
         firework_count += 1;
     }
@@ -118,5 +118,5 @@ function main()
     {
         firework();
         remove_firework();
-    },fire_time);
+    }, fire_time);
 }

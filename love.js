@@ -22,22 +22,22 @@ function init_screen()
     var screen_width = window.innerWidth;
     var screen_height = window.innerHeight;
 
-    $("#body").css("width",screen_width);
-    $("#body").css("height",screen_height);
+    $("#body").css("width", screen_width);
+    $("#body").css("height", screen_height);
 
-    if (screen_width/screen_height > table_proportion)
+    if (screen_width / screen_height > table_proportion)
     {
-        $("#table").css("height","100%");
-        $("#table").css("width",screen_height * table_proportion + "px");
-        $("#table").css("top","0px");
-        $("#table").css("left",(screen_width - screen_height*table_proportion)/2 + "px");
+        $("#table").css("height", "100%");
+        $("#table").css("width", screen_height * table_proportion + "px");
+        $("#table").css("top", "0px");
+        $("#table").css("left", (screen_width - screen_height*table_proportion) / 2 + "px");
     }
     else
     {
-        $("#table").css("width","100%");
-        $("#table").css("height",screen_width/table_proportion + "px");
-        $("#table").css("left","0px");
-        $("#table").css("top",(screen_height - screen_width/table_proportion)/2 + "px");
+        $("#table").css("width", "100%");
+        $("#table").css("height", screen_width / table_proportion + "px");
+        $("#table").css("left", "0px");
+        $("#table").css("top", (screen_height - screen_width / table_proportion) / 2 + "px");
     }
 }
 
@@ -46,17 +46,17 @@ function init_alert()
     var width = $("#window").width();
     var height = $("#window").height();
 
-    $("#alert").css("width",width + "px");
-    $("#alert").css("height",height + "px");
-    $("#alert").css("margin-top",-height/2 + "px");
-    $("#alert").css("margin-left",-width/2 + "px");
+    $("#alert").css("width", width + "px");
+    $("#alert").css("height", height + "px");
+    $("#alert").css("margin-top", -height / 2 + "px");
+    $("#alert").css("margin-left", -width / 2 + "px");
 
-    $("#exit").css("width",height/10 + "px");
-    $("#exit").css("height",height/10 + "px");
-    $("#exit").css("top",height * 0.03 + "px");
-    $("#exit").css("right",height * 0.03 + "px");
-    $("#exit").css("line-height",height/10 + "px");
-    $("#exit").css("font-size",height/13 + "px");
+    $("#exit").css("width", height / 10 + "px");
+    $("#exit").css("height", height / 10 + "px");
+    $("#exit").css("top", height * 0.03 + "px");
+    $("#exit").css("right", height * 0.03 + "px");
+    $("#exit").css("line-height" ,height / 10 + "px");
+    $("#exit").css("font-size", height / 13 + "px");
 }
 
 function init_font()
@@ -64,9 +64,9 @@ function init_font()
     var text_height = $("#window").height();
     var button_height = $(".button").height();
 
-    $("#text").css("font-size",text_height * 0.07 + "px");
-    $(".button").css("font-size",button_height * 0.4 + "px");
-    $("#inform").css("font-size",text_height/13 + "px");
+    $("#text").css("font-size", text_height * 0.07 + "px");
+    $(".button").css("font-size", button_height * 0.4 + "px");
+    $("#inform").css("font-size", text_height / 13 + "px");
 }
 
 function active(name,mouse)
@@ -76,18 +76,18 @@ function active(name,mouse)
 
     $(name).stop();
     $(name).stop();
-    $(name).css("left","0px");
-    $(name).css("top","0px");
-    $(name).css("width","0px");
-    $(name).css("height","0px");
-    $(name).css("margin-top","0px");
-    $(name).css("margin-left","0px");
-    $(name).css("background-color","#EE82EE");
-    $(name).css("left",mouse.offsetX + "px");
-    $(name).css("top",mouse.offsetY + "px");
+    $(name).css("left", "0px");
+    $(name).css("top", "0px");
+    $(name).css("width", "0px");
+    $(name).css("height", "0px");
+    $(name).css("margin-top", "0px");
+    $(name).css("margin-left", "0px");
+    $(name).css("background-color", "#EE82EE");
+    $(name).css("left", mouse.offsetX + "px");
+    $(name).css("top", mouse.offsetY + "px");
     $(name).show();
-    $(name).animate({width: radius_width/2 + "px",height: radius_width/2 + "px",marginTop: -radius_width/4 + "px",marginLeft: -radius_width/4 + "px"},active_time/2,"linear");
-    $(name).animate({width: radius_width + "px",height: radius_width + "px",marginTop: -radius_width/2 + "px",marginLeft: -radius_width/2 + "px",backgroundColor: "#EE82EE00"},active_time/2,"linear");
+    $(name).animate({width: radius_width/2 + "px",height: radius_width/2 + "px",marginTop: -radius_width/4 + "px", marginLeft: -radius_width/4 + "px"}, active_time / 2, "linear");
+    $(name).animate({width: radius_width + "px",height: radius_width + "px",marginTop: -radius_width/2 + "px", marginLeft: -radius_width/2 + "px", backgroundColor: "#EE82EE00"}, active_time / 2, "linear");
 }
 
 function change_text()
@@ -118,7 +118,7 @@ function change_text()
     else if (click_time > 99)
     {
         button_status = "broken";
-        $("#no").animate({backgroundColor: "#AAAAAAAA",color: "#AAAAAA00"},button_broken_time);
+        $("#no").animate({backgroundColor: "#AAAAAAAA", color: "#AAAAAA00"}, button_broken_time);
         $("#inform").html("按钮被你按坏啦!");
         $("#dark").fadeIn(alert_change_time);
     }
@@ -131,9 +131,9 @@ function change_text()
 
 function remove_meteor()
 {
-    for (var i=0;i<=meteor_count-meteor_onscreen;i++)
+    for (var i = 0; i <= meteor_count - meteor_onscreen; i++)
     {
-        $("#meteor"+i).remove();
+        $("#meteor" + i).remove();
     }
 }
 
@@ -142,7 +142,7 @@ function meteor()
     var num = random();
     if (num < p_meteor)
     {
-        var p = randfloat(0.8,1.5,2);
+        var p = randfloat(0.8, 1.5, 2);
         var top = randint(0,50);
         var right = randint(0,50);
         var width = $("#window").width();
@@ -151,16 +151,16 @@ function meteor()
         var time = meteor_time_standard * p;
 
         $("#body").append("<div class='meteor' id='meteor" + meteor_count + "'></div>");
-        $("#meteor" + meteor_count).css("top",top + "%");
-        $("#meteor" + meteor_count).css("right",right + "%");
-        $(".meteor").css("width",height/4 + "px");
-        $(".meteor").css("height",height/80 + "px");
-        $(".meteor").css("border-top-left-radius",height/80 + "px");
-        $(".meteor").css("border-bottom-left-radius",height/80 + "px");
+        $("#meteor" + meteor_count).css("top", top + "%");
+        $("#meteor" + meteor_count).css("right", right + "%");
+        $(".meteor").css("width", height / 4 + "px");
+        $(".meteor").css("height", height / 80 + "px");
+        $(".meteor").css("border-top-left-radius", height / 80 + "px");
+        $(".meteor").css("border-bottom-left-radius", height / 80 + "px");
 
-        $("#meteor" + meteor_count).animate({top: "+=" + distance/3 + "px",right: "+=" + distance/3 + "px",opacity: "1"},time/3,"linear");
-        $("#meteor" + meteor_count).animate({top: "+=" + distance/3 + "px",right: "+=" + distance/3 + "px"},time/3,"linear");
-        $("#meteor" + meteor_count).animate({top: "+=" + distance/3 + "px",right: "+=" + distance/3 + "px",opacity: "0"},time/3,"linear");
+        $("#meteor" + meteor_count).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "1"}, time / 3, "linear");
+        $("#meteor" + meteor_count).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px"}, time / 3,"linear");
+        $("#meteor" + meteor_count).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "0"}, time / 3, "linear");
 
         meteor_count += 1;
     }
@@ -176,14 +176,14 @@ function main()
     {
         meteor();
         remove_meteor();
-    },meteor_append_time);
+    }, meteor_append_time);
 
     $("#no").click(function(mouse)
     {
         click_status = "no";
         if (button_status == "normal")
         {
-            active("#no_radius",mouse);
+            active("#no_radius", mouse);
             change_text();
             click_time += 1;
         }
@@ -191,7 +191,7 @@ function main()
 
     $("#yes").click(function(mouse)
     {
-        active("#yes_radius",mouse);
+        active("#yes_radius", mouse);
         click_status = "yes";
         $("#inform").html("就知道你一定会同意的!");
         $("#dark").fadeIn(alert_change_time);
@@ -200,13 +200,13 @@ function main()
     $("#exit").hover(function()
     {
         $("#exit").stop();
-        $("#exit").animate({backgroundColor: "#FF0000"},exit_change_time);
+        $("#exit").animate({backgroundColor: "#FF0000"}, exit_change_time);
     });
 
     $("#exit").mouseleave(function()
     {
         $("#exit").stop();
-        $("#exit").animate({backgroundColor: "#FFFFFF00"},exit_change_time);
+        $("#exit").animate({backgroundColor: "#FFFFFF00"}, exit_change_time);
     });
 
     $("#exit").click(function()
