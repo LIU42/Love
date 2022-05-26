@@ -67,7 +67,7 @@
     font-weight: bold;
 }
 
-.click_radius
+.click-radius
 {
     width: 0px;
     height: 0px;
@@ -87,7 +87,7 @@
     position: absolute;
 }
 
-.heart_block
+.heart-block
 {
     width: 67%;
     height: 67%;
@@ -97,7 +97,7 @@
     background-color: #FF1493;
 }
 
-.heart_radius1
+.heart-radius1
 {
     width: 67%;
     height: 67%;
@@ -108,7 +108,7 @@
     border-radius: 50%;
 }
 
-.heart_radius2
+.heart-radius2
 {
     width: 67%;
     height: 67%;

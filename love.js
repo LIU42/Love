@@ -1,47 +1,52 @@
-var table_proportion = 0.75;
-var table_width = 750;
-var table_height = 1000;
-var text_code = 1;
-var text_change_time = 200;
-var active_time = 1000;
-var active_proportion = 3.5;
-var alert_change_time = 200;
-var exit_change_time = 200;
-var click_status = "no";
-var click_time = 0;
-var p_meteor = 0.08;
-var meteor_onscreen = 8
-var meteor_count = 0;
-var meteor_append_time = 150;
-var meteor_time_standard = 2500;
-var button_status = "normal";
-var button_broken_time = 2500;
+var tableProportion = 0.75;
+var tableWidth = 750;
+var tableHeight = 1000;
 
-function init_screen()
+var textCode = 1;
+var textChangeTime = 200;
+
+var activeTime = 1000;
+var activeProportion = 3.5;
+var alertChangeTime = 200;
+var exitChangeTime = 200;
+
+var clickStatus = "no";
+var clickTime = 0;
+
+var pMeteor = 0.08;
+var meteorOnScreen = 8
+var meteorCount = 0;
+var meteorAppendTime = 150;
+var meteorTimeStandard = 2500;
+
+var buttonStatus = "normal";
+var buttonBrokenTime = 2500;
+
+function initScreen()
 {
-    var screen_width = window.innerWidth;
-    var screen_height = window.innerHeight;
+    var screenWidth = window.innerWidth;
+    var screenHeight = window.innerHeight;
 
-    $("#body").css("width", screen_width);
-    $("#body").css("height", screen_height);
+    $("#body").css("width", screenWidth);
+    $("#body").css("height", screenHeight);
 
-    if (screen_width / screen_height > table_proportion)
+    if (screenWidth / screenHeight > tableProportion)
     {
         $("#table").css("height", "100%");
-        $("#table").css("width", screen_height * table_proportion + "px");
+        $("#table").css("width", screenHeight * tableProportion + "px");
         $("#table").css("top", "0px");
-        $("#table").css("left", (screen_width - screen_height*table_proportion) / 2 + "px");
+        $("#table").css("left", (screenWidth - screenHeight * tableProportion) / 2 + "px");
     }
     else
     {
         $("#table").css("width", "100%");
-        $("#table").css("height", screen_width / table_proportion + "px");
+        $("#table").css("height", screenWidth / tableProportion + "px");
         $("#table").css("left", "0px");
-        $("#table").css("top", (screen_height - screen_width / table_proportion) / 2 + "px");
+        $("#table").css("top", (screenHeight - screenWidth / tableProportion) / 2 + "px");
     }
 }
 
-function init_alert()
+function initAlert()
 {
     var width = $("#window").width();
     var height = $("#window").height();
@@ -59,20 +64,20 @@ function init_alert()
     $("#exit").css("font-size", height / 13 + "px");
 }
 
-function init_font()
+function initFont()
 {
-    var text_height = $("#window").height();
-    var button_height = $(".button").height();
+    var textHeight = $("#window").height();
+    var buttonHeight = $(".button").height();
 
-    $("#text").css("font-size", text_height * 0.07 + "px");
-    $(".button").css("font-size", button_height * 0.4 + "px");
-    $("#inform").css("font-size", text_height / 13 + "px");
+    $("#text").css("font-size", textHeight * 0.07 + "px");
+    $(".button").css("font-size", buttonHeight * 0.4 + "px");
+    $("#inform").css("font-size", textHeight / 13 + "px");
 }
 
-function active(name,mouse)
+function active(name, mouse)
 {
-    var button_width = $("#yes").width();
-    var radius_width = button_width * active_proportion;
+    var buttonWidth = $("#yes").width();
+    var radiusWidth = buttonWidth * activeProportion;
 
     $(name).stop();
     $(name).stop();
@@ -86,19 +91,19 @@ function active(name,mouse)
     $(name).css("left", mouse.offsetX + "px");
     $(name).css("top", mouse.offsetY + "px");
     $(name).show();
-    $(name).animate({width: radius_width/2 + "px",height: radius_width/2 + "px",marginTop: -radius_width/4 + "px", marginLeft: -radius_width/4 + "px"}, active_time / 2, "linear");
-    $(name).animate({width: radius_width + "px",height: radius_width + "px",marginTop: -radius_width/2 + "px", marginLeft: -radius_width/2 + "px", backgroundColor: "#EE82EE00"}, active_time / 2, "linear");
+    $(name).animate({width: radiusWidth/2 + "px", height: radiusWidth/2 + "px", marginTop: -radiusWidth/4 + "px", marginLeft: -radiusWidth/4 + "px"}, activeTime / 2, "linear");
+    $(name).animate({width: radiusWidth + "px", height: radiusWidth + "px", marginTop: -radiusWidth/2 + "px", marginLeft: -radiusWidth/2 + "px", backgroundColor: "#EE82EE00"}, activeTime / 2, "linear");
 }
 
-function change_text()
+function changeText()
 {
-    if (text_code <= 10)
+    if (textCode <= 10)
     {
-        $("#text").fadeOut(text_change_time);
+        $("#text").fadeOut(textChangeTime);
 		setTimeout(function()
         {
             text = document.getElementById("text");
-            switch (text_code)
+            switch (textCode)
             {
                 case 1: text.innerHTML = "你的出现<br>是上天给我最好的礼物"; break;
                 case 2: text.innerHTML = "每天要做的事:<ul><li>想你想你~</li><li>爱你爱你~</li></ul>"; break;
@@ -111,27 +116,27 @@ function change_text()
                 case 9: text.innerHTML = "不说分手~"; break;
                 default: text.innerHTML = "好不好嘛~"; break;
             }
-            text_code += 1;
-        },text_change_time);
-		$("#text").fadeIn(text_change_time);
+            textCode += 1;
+        },textChangeTime);
+		$("#text").fadeIn(textChangeTime);
     }
-    else if (click_time > 99)
+    else if (clickTime > 99)
     {
-        button_status = "broken";
-        $("#no").animate({backgroundColor: "#AAAAAAAA", color: "#AAAAAA00"}, button_broken_time);
+        buttonStatus = "broken";
+        $("#no").animate({backgroundColor: "#AAAAAAAA", color: "#AAAAAA00"}, buttonBrokenTime);
         $("#inform").html("按钮被你按坏啦!");
-        $("#dark").fadeIn(alert_change_time);
+        $("#dark").fadeIn(alertChangeTime);
     }
     else
     {
         $("#inform").html("哼! 你不同意我就赖着不走了~");
-        $("#dark").fadeIn(alert_change_time);
+        $("#dark").fadeIn(alertChangeTime);
     }
 }
 
-function remove_meteor()
+function removeMeteor()
 {
-    for (var i = 0; i <= meteor_count - meteor_onscreen; i++)
+    for (var i = 0; i <= meteorCount - meteorOnScreen; i++)
     {
         $("#meteor" + i).remove();
     }
@@ -140,78 +145,78 @@ function remove_meteor()
 function meteor()
 {
     var num = random();
-    if (num < p_meteor)
+    if (num < pMeteor)
     {
-        var p = randfloat(0.8, 1.5, 2);
-        var top = randint(0,50);
-        var right = randint(0,50);
+        var p = randFloat(0.8, 1.5, 2);
+        var top = randInt(0,50);
+        var right = randInt(0,50);
         var width = $("#window").width();
         var height = $("#window").height();
         var distance = width * p;
-        var time = meteor_time_standard * p;
+        var time = meteorTimeStandard * p;
 
-        $("#body").append("<div class='meteor' id='meteor" + meteor_count + "'></div>");
-        $("#meteor" + meteor_count).css("top", top + "%");
-        $("#meteor" + meteor_count).css("right", right + "%");
+        $("#body").append("<div class='meteor' id='meteor" + meteorCount + "'></div>");
+        $("#meteor" + meteorCount).css("top", top + "%");
+        $("#meteor" + meteorCount).css("right", right + "%");
         $(".meteor").css("width", height / 4 + "px");
         $(".meteor").css("height", height / 80 + "px");
         $(".meteor").css("border-top-left-radius", height / 80 + "px");
         $(".meteor").css("border-bottom-left-radius", height / 80 + "px");
 
-        $("#meteor" + meteor_count).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "1"}, time / 3, "linear");
-        $("#meteor" + meteor_count).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px"}, time / 3,"linear");
-        $("#meteor" + meteor_count).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "0"}, time / 3, "linear");
+        $("#meteor" + meteorCount).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "1"}, time / 3, "linear");
+        $("#meteor" + meteorCount).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px"}, time / 3,"linear");
+        $("#meteor" + meteorCount).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "0"}, time / 3, "linear");
 
-        meteor_count += 1;
+        meteorCount += 1;
     }
 }
 
 function main()
 {
-    init_screen();
-    init_alert();
-    init_font();
+    initScreen();
+    initAlert();
+    initFont();
 
     setInterval(function()
     {
         meteor();
-        remove_meteor();
-    }, meteor_append_time);
+        removeMeteor();
+    }, meteorAppendTime);
 
     $("#no").click(function(mouse)
     {
-        click_status = "no";
-        if (button_status == "normal")
+        clickStatus = "no";
+        if (buttonStatus == "normal")
         {
-            active("#no_radius", mouse);
-            change_text();
-            click_time += 1;
+            active("#no-radius", mouse);
+            changeText();
+            clickTime += 1;
         }
     });
 
     $("#yes").click(function(mouse)
     {
-        active("#yes_radius", mouse);
-        click_status = "yes";
+        active("#yes-radius", mouse);
+        clickStatus = "yes";
         $("#inform").html("就知道你一定会同意的!");
-        $("#dark").fadeIn(alert_change_time);
+        $("#dark").fadeIn(alertChangeTime);
     });
 
     $("#exit").hover(function()
     {
         $("#exit").stop();
-        $("#exit").animate({backgroundColor: "#FF0000"}, exit_change_time);
+        $("#exit").animate({backgroundColor: "#FF0000"}, exitChangeTime);
     });
 
     $("#exit").mouseleave(function()
     {
         $("#exit").stop();
-        $("#exit").animate({backgroundColor: "#FFFFFF00"}, exit_change_time);
+        $("#exit").animate({backgroundColor: "#FFFFFF00"}, exitChangeTime);
     });
 
     $("#exit").click(function()
     {
-        $("#dark").fadeOut(alert_change_time);
-        if (click_status == "yes") { window.open("fireworks.html","_self"); }
+        $("#dark").fadeOut(alertChangeTime);
+        if (clickStatus == "yes") { window.open("fireworks.html","_self"); }
     });
 }

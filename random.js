@@ -1,6 +1,6 @@
 function random() { return Math.random(); }
 
-function randint(min, max)
+function randInt(min, max)
 {
     min = Math.ceil(min);
 	max = Math.floor(max);
@@ -8,15 +8,15 @@ function randint(min, max)
     return ans;
 }
 
-function randfloat(min, max, n)
+function randFloat(min, max, n)
 {
     ans = Math.random() * (max - min) + min;
     ans = ans.toFixed(n);
     return ans;
 }
 
-function randchoice(arr)
+function randChoice(arr)
 {
-    count = randint(0, arr.length);
+    count = randInt(0, arr.length);
     return arr[count];
 }

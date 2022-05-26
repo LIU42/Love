@@ -17,7 +17,7 @@ html {height: 100%;}
     transform-origin: bottom center;
 }
 
-.fire_zone
+.fire-zone
 {
     width: 100%;
     position: absolute;
@@ -34,7 +34,7 @@ html {height: 100%;}
     left: 49.5%;
 }
 
-.path_work
+.path-work
 {
     width: 100%;
     position: absolute;
@@ -46,7 +46,7 @@ html {height: 100%;}
     opacity: 1;
 }
 
-.zone_path
+.zone-path
 {
     height: 1%;
     position: absolute;
@@ -56,23 +56,23 @@ html {height: 100%;}
     overflow: hidden;
 }
 
-.zone_path0 {transform: rotate(0deg); width: 100%;}
-.zone_path1 {transform: rotate(24deg); width: 66.6%;}
-.zone_path2 {transform: rotate(48deg); width: 83.2%;}
-.zone_path3 {transform: rotate(72deg); width: 100%;}
-.zone_path4 {transform: rotate(96deg); width: 50%;}
-.zone_path5 {transform: rotate(120deg); width: 73.2%;}
-.zone_path6 {transform: rotate(144deg); width: 63.2%;}
-.zone_path7 {transform: rotate(168deg); width: 93.2%;}
-.zone_path8 {transform: rotate(192deg); width: 100%;}
-.zone_path9 {transform: rotate(216deg); width: 66.6%;}
-.zone_path10 {transform: rotate(240deg); width: 86.6%;}
-.zone_path11 {transform: rotate(264deg); width: 53.2%;}
-.zone_path12 {transform: rotate(288deg); width: 100%;}
-.zone_path13 {transform: rotate(312deg); width: 73.3%;}
-.zone_path14 {transform: rotate(336deg); width: 83.2%;}
+.zone-path0 {transform: rotate(0deg); width: 100%;}
+.zone-path1 {transform: rotate(24deg); width: 66.6%;}
+.zone-path2 {transform: rotate(48deg); width: 83.2%;}
+.zone-path3 {transform: rotate(72deg); width: 100%;}
+.zone-path4 {transform: rotate(96deg); width: 50%;}
+.zone-path5 {transform: rotate(120deg); width: 73.2%;}
+.zone-path6 {transform: rotate(144deg); width: 63.2%;}
+.zone-path7 {transform: rotate(168deg); width: 93.2%;}
+.zone-path8 {transform: rotate(192deg); width: 100%;}
+.zone-path9 {transform: rotate(216deg); width: 66.6%;}
+.zone-path10 {transform: rotate(240deg); width: 86.6%;}
+.zone-path11 {transform: rotate(264deg); width: 53.2%;}
+.zone-path12 {transform: rotate(288deg); width: 100%;}
+.zone-path13 {transform: rotate(312deg); width: 73.3%;}
+.zone-path14 {transform: rotate(336deg); width: 83.2%;}
 
-.zone_work
+.zone-work
 {
     width: 40%;
     height: 100%;
