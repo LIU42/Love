@@ -10,14 +10,14 @@ html {height: 100%;}
     overflow: hidden;
 }
 
-.table
+.container
 {
     position: absolute;
     bottom: 0px;
     transform-origin: bottom center;
 }
 
-.fire-zone
+.fire-container
 {
     width: 100%;
     position: absolute;
@@ -26,7 +26,7 @@ html {height: 100%;}
     transform-origin: center;
 }
 
-.path
+.up-path
 {
     width: 1%;
     position: absolute;
@@ -34,7 +34,7 @@ html {height: 100%;}
     left: 49.5%;
 }
 
-.path-work
+.up-item
 {
     width: 100%;
     position: absolute;
@@ -46,7 +46,7 @@ html {height: 100%;}
     opacity: 1;
 }
 
-.zone-path
+.fire-path
 {
     height: 1%;
     position: absolute;
@@ -56,23 +56,23 @@ html {height: 100%;}
     overflow: hidden;
 }
 
-.zone-path0 {transform: rotate(0deg); width: 100%;}
-.zone-path1 {transform: rotate(24deg); width: 66.6%;}
-.zone-path2 {transform: rotate(48deg); width: 83.2%;}
-.zone-path3 {transform: rotate(72deg); width: 100%;}
-.zone-path4 {transform: rotate(96deg); width: 50%;}
-.zone-path5 {transform: rotate(120deg); width: 73.2%;}
-.zone-path6 {transform: rotate(144deg); width: 63.2%;}
-.zone-path7 {transform: rotate(168deg); width: 93.2%;}
-.zone-path8 {transform: rotate(192deg); width: 100%;}
-.zone-path9 {transform: rotate(216deg); width: 66.6%;}
-.zone-path10 {transform: rotate(240deg); width: 86.6%;}
-.zone-path11 {transform: rotate(264deg); width: 53.2%;}
-.zone-path12 {transform: rotate(288deg); width: 100%;}
-.zone-path13 {transform: rotate(312deg); width: 73.3%;}
-.zone-path14 {transform: rotate(336deg); width: 83.2%;}
+.fire-path0 {transform: rotate(0deg); width: 100%;}
+.fire-path1 {transform: rotate(24deg); width: 66.6%;}
+.fire-path2 {transform: rotate(48deg); width: 83.2%;}
+.fire-path3 {transform: rotate(72deg); width: 100%;}
+.fire-path4 {transform: rotate(96deg); width: 50%;}
+.fire-path5 {transform: rotate(120deg); width: 73.2%;}
+.fire-path6 {transform: rotate(144deg); width: 63.2%;}
+.fire-path7 {transform: rotate(168deg); width: 93.2%;}
+.fire-path8 {transform: rotate(192deg); width: 100%;}
+.fire-path9 {transform: rotate(216deg); width: 66.6%;}
+.fire-path10 {transform: rotate(240deg); width: 86.6%;}
+.fire-path11 {transform: rotate(264deg); width: 53.2%;}
+.fire-path12 {transform: rotate(288deg); width: 100%;}
+.fire-path13 {transform: rotate(312deg); width: 73.3%;}
+.fire-path14 {transform: rotate(336deg); width: 83.2%;}
 
-.zone-work
+.fire-item
 {
     width: 40%;
     height: 100%;

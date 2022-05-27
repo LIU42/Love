@@ -1,6 +1,6 @@
-var tableProportion = 0.75;
-var tableWidth = 750;
-var tableHeight = 1000;
+var containerProportion = 0.75;
+var containerWidth = 750;
+var containerHeight = 1000;
 
 var textCode = 1;
 var textChangeTime = 200;
@@ -30,19 +30,19 @@ function initScreen()
     $("#body").css("width", screenWidth);
     $("#body").css("height", screenHeight);
 
-    if (screenWidth / screenHeight > tableProportion)
+    if (screenWidth / screenHeight > containerProportion)
     {
-        $("#table").css("height", "100%");
-        $("#table").css("width", screenHeight * tableProportion + "px");
-        $("#table").css("top", "0px");
-        $("#table").css("left", (screenWidth - screenHeight * tableProportion) / 2 + "px");
+        $("#container").css("height", "100%");
+        $("#container").css("width", screenHeight * containerProportion + "px");
+        $("#container").css("top", "0px");
+        $("#container").css("left", (screenWidth - screenHeight * containerProportion) / 2 + "px");
     }
     else
     {
-        $("#table").css("width", "100%");
-        $("#table").css("height", screenWidth / tableProportion + "px");
-        $("#table").css("left", "0px");
-        $("#table").css("top", (screenHeight - screenWidth / tableProportion) / 2 + "px");
+        $("#container").css("width", "100%");
+        $("#container").css("height", screenWidth / containerProportion + "px");
+        $("#container").css("left", "0px");
+        $("#container").css("top", (screenHeight - screenWidth / containerProportion) / 2 + "px");
     }
 }
 
@@ -188,7 +188,7 @@ function main()
         clickStatus = "no";
         if (buttonStatus == "normal")
         {
-            active("#no-radius", mouse);
+            active("#no-circle", mouse);
             changeText();
             clickTime += 1;
         }
@@ -196,7 +196,7 @@ function main()
 
     $("#yes").click(function(mouse)
     {
-        active("#yes-radius", mouse);
+        active("#yes-circle", mouse);
         clickStatus = "yes";
         $("#inform").html("就知道你一定会同意的!");
         $("#dark").fadeIn(alertChangeTime);

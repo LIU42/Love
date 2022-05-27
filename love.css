@@ -7,7 +7,7 @@
     overflow: hidden;
 }
 
-#table
+#container
 {
     background-color: #FFFFFF00;
     position: absolute;
@@ -67,7 +67,7 @@
     font-weight: bold;
 }
 
-.click-radius
+.click-circle
 {
     width: 0px;
     height: 0px;
@@ -97,7 +97,7 @@
     background-color: #FF1493;
 }
 
-.heart-radius1
+.heart-circle1
 {
     width: 67%;
     height: 67%;
@@ -108,7 +108,7 @@
     border-radius: 50%;
 }
 
-.heart-radius2
+.heart-circle2
 {
     width: 67%;
     height: 67%;

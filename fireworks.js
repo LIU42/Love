@@ -31,82 +31,82 @@ function firework()
         var color = randChoice(colorList);
 
         $("#body").append(''+
-        '<div class="table" id="firework' + fireworkCount + '">'+
-            '<div class="fire-zone" id="zone' + fireworkCount + '">'+
-                '<div class="zone-path zone-path0">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+        '<div class="container" id="firework' + fireworkCount + '">'+
+            '<div class="fire-container" id="fire-container' + fireworkCount + '">'+
+                '<div class="fire-path fire-path0">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path1">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path1">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path2">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path2">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path3">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path3">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path4">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path4">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path5">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path5">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path6">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path6">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path7">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path7">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path8">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path8">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path9">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path9">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path10">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path10">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path11">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path11">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path12">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path12">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path13">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path13">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
-                '<div class="zone-path zone-path14">'+
-                    '<div class="zone-work zone-work' + fireworkCount + '"></div>'+
+                '<div class="fire-path fire-path14">'+
+                    '<div class="fire-item fire-item' + fireworkCount + '"></div>'+
                 '</div>'+
             '</div>'+
-            '<div class="path" id="path' + fireworkCount + '">'+
-                '<div class="path-work" id="path-work' + fireworkCount + '"></div>'+
+            '<div class="up-path" id="up-path' + fireworkCount + '">'+
+                '<div class="up-item" id="up-item' + fireworkCount + '"></div>'+
             '</div>'+
         '</div>');
 
         $("#firework" + fireworkCount).css("height", height + "px");
-        $(".table").css("width", screenHeight * 0.5 + "px");
-        $(".table").css("left", (screenWidth - screenHeight * 0.5) * 0.5 + "px");
-        $(".fire-zone").css("height", $(".table").width());
+        $(".container").css("width", screenHeight * 0.5 + "px");
+        $(".container").css("left", (screenWidth - screenHeight * 0.5) * 0.5 + "px");
+        $(".fire-container").css("height", $(".container").width());
 
-        $("#path" + fireworkCount).css("height", height - $(".table").width() / 2 + "px");
-        $(".path-work").css("height", $(".path").width() * 30 + "px");
-        $(".path-work").css("border-top-left-radius", $(".path").width() + "px");
-        $(".path-work").css("border-top-right-radius", $(".path").width() + "px");
+        $("#up-path" + fireworkCount).css("height", height - $(".container").width() / 2 + "px");
+        $(".up-item").css("height", $(".up-path").width() * 30 + "px");
+        $(".up-item").css("border-top-left-radius", $(".up-path").width() + "px");
+        $(".up-item").css("border-top-right-radius", $(".up-path").width() + "px");
 
-        $(".zone-work").css("border-top-right-radius", $(".zone-path").height() + "px");
-        $(".zone-work").css("border-bottom-right-radius", $(".zone-path").height() + "px");
+        $(".fire-item").css("border-top-right-radius", $(".fire-path").height() + "px");
+        $(".fire-item").css("border-bottom-right-radius", $(".fire-path").height() + "px");
 
         $("#firework" + fireworkCount).css("transform", "rotate(" + alpha + "deg)");
-        $("#zone" + fireworkCount).css("transform", "rotate(" + beta + "deg)");
-        $("#path-work" + fireworkCount).css("background-image", "linear-gradient(to bottom," + color + "FF," + color + "00 100%)");
-        $(".zone-work" + fireworkCount).css("background-image", "linear-gradient(to left," + color + "FF," + color + "00 100%)");
+        $("#fire-container" + fireworkCount).css("transform", "rotate(" + beta + "deg)");
+        $("#up-item" + fireworkCount).css("background-image", "linear-gradient(to bottom," + color + "FF," + color + "00 100%)");
+        $(".fire-item" + fireworkCount).css("background-image", "linear-gradient(to left," + color + "FF," + color + "00 100%)");
 
-        $("#path-work" + fireworkCount).animate({top: "0%"}, uptime, "linear");
-        $("#path-work" + fireworkCount).animate({opacity: "0"}, 0, "linear");
-        $(".zone-work" + fireworkCount).animate({right: "100%"}, uptime, "linear");
-        $(".zone-work" + fireworkCount).animate({right: "70%"}, flameTime / 2, "linear");
-        $(".zone-work" + fireworkCount).animate({right: "40%", opacity: "0"}, flameTime / 2, "linear");
+        $("#up-item" + fireworkCount).animate({top: "0%"}, uptime, "linear");
+        $("#up-item" + fireworkCount).animate({opacity: "0"}, 0, "linear");
+        $(".fire-item" + fireworkCount).animate({right: "100%"}, uptime, "linear");
+        $(".fire-item" + fireworkCount).animate({right: "70%"}, flameTime / 2, "linear");
+        $(".fire-item" + fireworkCount).animate({right: "40%", opacity: "0"}, flameTime / 2, "linear");
 
         fireworkCount += 1;
     }
