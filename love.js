@@ -142,14 +142,13 @@ function removeMeteor()
     }
 }
 
-function meteor()
+function addMeteor()
 {
-    var num = random();
-    if (num < pMeteor)
+    if (random() < pMeteor)
     {
         var p = randFloat(0.8, 1.5, 2);
-        var top = randInt(0,50);
-        var right = randInt(0,50);
+        var top = randInt(0, 50);
+        var right = randInt(0, 50);
         var width = $("#window").width();
         var height = $("#window").height();
         var distance = width * p;
@@ -176,10 +175,11 @@ function main()
     initScreen();
     initAlert();
     initFont();
+    $("#hide").fadeOut(200);
 
     setInterval(function()
     {
-        meteor();
+        addMeteor();
         removeMeteor();
     }, meteorAppendTime);
 

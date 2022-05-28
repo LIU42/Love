@@ -1,4 +1,4 @@
-html {height: 100%;}
+html { height: 100%; }
 
 #body
 {
@@ -56,21 +56,21 @@ html {height: 100%;}
     overflow: hidden;
 }
 
-.fire-path0 {transform: rotate(0deg); width: 100%;}
-.fire-path1 {transform: rotate(24deg); width: 66.6%;}
-.fire-path2 {transform: rotate(48deg); width: 83.2%;}
-.fire-path3 {transform: rotate(72deg); width: 100%;}
-.fire-path4 {transform: rotate(96deg); width: 50%;}
-.fire-path5 {transform: rotate(120deg); width: 73.2%;}
-.fire-path6 {transform: rotate(144deg); width: 63.2%;}
-.fire-path7 {transform: rotate(168deg); width: 93.2%;}
-.fire-path8 {transform: rotate(192deg); width: 100%;}
-.fire-path9 {transform: rotate(216deg); width: 66.6%;}
-.fire-path10 {transform: rotate(240deg); width: 86.6%;}
-.fire-path11 {transform: rotate(264deg); width: 53.2%;}
-.fire-path12 {transform: rotate(288deg); width: 100%;}
-.fire-path13 {transform: rotate(312deg); width: 73.3%;}
-.fire-path14 {transform: rotate(336deg); width: 83.2%;}
+.fire-path0 { transform: rotate(0deg); width: 100%; }
+.fire-path1 { transform: rotate(24deg); width: 66.6%; }
+.fire-path2 { transform: rotate(48deg); width: 83.2%; }
+.fire-path3 { transform: rotate(72deg); width: 100%; }
+.fire-path4 { transform: rotate(96deg); width: 50%; }
+.fire-path5 { transform: rotate(120deg); width: 73.2%; }
+.fire-path6 { transform: rotate(144deg); width: 63.2%; }
+.fire-path7 { transform: rotate(168deg); width: 93.2%; }
+.fire-path8 { transform: rotate(192deg); width: 100%; }
+.fire-path9 { transform: rotate(216deg); width: 66.6%; }
+.fire-path10 { transform: rotate(240deg); width: 86.6%; }
+.fire-path11 { transform: rotate(264deg); width: 53.2%; }
+.fire-path12 { transform: rotate(288deg); width: 100%; }
+.fire-path13 { transform: rotate(312deg); width: 73.3%; }
+.fire-path14 { transform: rotate(336deg); width: 83.2%; }
 
 .fire-item
 {

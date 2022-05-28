@@ -97,27 +97,17 @@
     background-color: #FF1493;
 }
 
-.heart-circle1
+.heart-circle
 {
     width: 67%;
     height: 67%;
     position: absolute;
-    top: 0%;
-    left: 0%;
     background-color: #FF1493;
     border-radius: 50%;
 }
 
-.heart-circle2
-{
-    width: 67%;
-    height: 67%;
-    position: absolute;
-    right: 0%;
-    bottom: 0%;
-    background-color: #FF1493;
-    border-radius: 50%;
-}
+.heart-circle1 { top: 0%; left: 0%; }
+.heart-circle2 { right: 0%; bottom: 0%; }
 
 #heart1
 {
@@ -140,10 +130,10 @@
     transform: rotate(-38deg);
 }
 
-button:focus {outline: 0;}
+button:focus { outline: 0; }
 
-#yes {left: 15%;}
-#no {right: 15%;}
+#yes { left: 15%; }
+#no { right: 15%; }
 
 #dark
 {
@@ -203,4 +193,14 @@ button:focus {outline: 0;}
     border-top-right-radius: 70%;
     border-bottom-right-radius: 70%;
     transform: rotate(-45deg);
+}
+
+#hide
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #FFB6C1;
 }

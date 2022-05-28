@@ -1,4 +1,4 @@
-var colorList = ["#FFFFFF","#FF0000","#FFFF00","#00BFFF","#00FF00","#A000A0","#FFA500"];
+var colorList = [ "#FFFFFF","#FF0000","#FFFF00","#00BFFF","#00FF00","#A000A0","#FFA500" ];
 var pFirework = 0.5;
 var fireworkOnScreen = 6;
 var fireTime = 500;
@@ -15,13 +15,12 @@ function removeFirework()
     }
 }
 
-function firework()
+function addFirework()
 {
     var screenWidth = $("#body").width();
     var screenHeight = $("#body").height();
-    var num = random();
 
-    if (num < pFirework)
+    if (random() < pFirework)
     {
         var p = randFloat(0.5, 1, 2);
         var height = screenHeight * p;
@@ -116,7 +115,7 @@ function main()
 {
     setInterval(function()
     {
-        firework();
+        addFirework();
         removeFirework();
     }, fireTime);
 }
