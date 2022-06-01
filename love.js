@@ -175,7 +175,7 @@ function main()
     initScreen();
     initAlert();
     initFont();
-    $("#hide").fadeOut(200);
+    $("#hide").remove();
 
     setInterval(function()
     {

@@ -8,10 +8,10 @@ function randInt(min, max)
     return ans;
 }
 
-function randFloat(min, max, n)
+function randFloat(min, max, prec)
 {
     ans = Math.random() * (max - min) + min;
-    ans = ans.toFixed(n);
+    ans = ans.toFixed(prec);
     return ans;
 }
 
