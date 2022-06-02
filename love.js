@@ -74,7 +74,7 @@ function initFont()
     $("#inform").css("font-size", textHeight / 13 + "px");
 }
 
-function active(name, mouse)
+function buttonOnClick(name, mouse)
 {
     var buttonWidth = $("#yes").width();
     var radiusWidth = buttonWidth * activeProportion;
@@ -146,13 +146,13 @@ function addMeteor()
 {
     if (random() < pMeteor)
     {
-        var p = randFloat(0.8, 1.5, 2);
+        var range = randFloat(0.8, 1.5, 2);
         var top = randInt(0, 50);
         var right = randInt(0, 50);
         var width = $("#window").width();
         var height = $("#window").height();
-        var distance = width * p;
-        var time = meteorTimeStandard * p;
+        var distance = width * range;
+        var time = meteorTimeStandard * range;
 
         $("#body").append("<div class='meteor' id='meteor" + meteorCount + "'></div>");
         $("#meteor" + meteorCount).css("top", top + "%");
@@ -188,7 +188,7 @@ function main()
         clickStatus = "no";
         if (buttonStatus == "normal")
         {
-            active("#no-circle", mouse);
+            buttonOnClick("#no-circle", mouse);
             changeText();
             clickTime += 1;
         }
@@ -196,7 +196,7 @@ function main()
 
     $("#yes").click(function(mouse)
     {
-        active("#yes-circle", mouse);
+        buttonOnClick("#yes-circle", mouse);
         clickStatus = "yes";
         $("#inform").html("就知道你一定会同意的!");
         $("#dark").fadeIn(alertChangeTime);

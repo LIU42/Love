@@ -22,9 +22,9 @@ function addFirework()
 
     if (random() < pFirework)
     {
-        var p = randFloat(0.5, 1, 2);
-        var height = screenHeight * p;
-        var uptime = uptimeStandard * p;
+        var range = randFloat(0.5, 1, 2);
+        var height = screenHeight * range;
+        var uptime = uptimeStandard * range;
         var alpha = randInt(-alphaMax, alphaMax);
         var beta = randInt(0, 360);
         var color = randChoice(colorList);
