@@ -84,28 +84,37 @@ function addFirework()
         '</div>');
 
         $("#firework" + fireworkCount).css("height", height + "px");
-        $(".container").css("width", screenHeight * 0.5 + "px");
-        $(".container").css("left", (screenWidth - screenHeight * 0.5) * 0.5 + "px");
+
+        $(".container").css({
+            "width": screenHeight * 0.5 + "px",
+            "left": (screenWidth - screenHeight * 0.5) * 0.5 + "px"
+        });
+
         $(".fire-container").css("height", $(".container").width());
-
         $("#up-path" + fireworkCount).css("height", height - $(".container").width() / 2 + "px");
-        $(".up-item").css("height", $(".up-path").width() * 30 + "px");
-        $(".up-item").css("border-top-left-radius", $(".up-path").width() + "px");
-        $(".up-item").css("border-top-right-radius", $(".up-path").width() + "px");
 
-        $(".fire-item").css("border-top-right-radius", $(".fire-path").height() + "px");
-        $(".fire-item").css("border-bottom-right-radius", $(".fire-path").height() + "px");
+        $(".up-item").css({
+            "height": $(".up-path").width() * 30 + "px",
+            "border-top-left-radius": $(".up-path").width() + "px",
+            "border-top-right-radius": $(".up-path").width() + "px"
+        });
+
+        $(".fire-item").css({
+            "border-top-right-radius": $(".fire-path").height() + "px",
+            "border-bottom-right-radius": $(".fire-path").height() + "px"
+        });
 
         $("#firework" + fireworkCount).css("transform", "rotate(" + alpha + "deg)");
         $("#fire-container" + fireworkCount).css("transform", "rotate(" + beta + "deg)");
         $("#up-item" + fireworkCount).css("background-image", "linear-gradient(to bottom," + color + "FF," + color + "00 100%)");
         $(".fire-item" + fireworkCount).css("background-image", "linear-gradient(to left," + color + "FF," + color + "00 100%)");
 
-        $("#up-item" + fireworkCount).animate({top: "0%"}, uptime, "linear");
-        $("#up-item" + fireworkCount).animate({opacity: "0"}, 0, "linear");
-        $(".fire-item" + fireworkCount).animate({right: "100%"}, uptime, "linear");
-        $(".fire-item" + fireworkCount).animate({right: "70%"}, flameTime / 2, "linear");
-        $(".fire-item" + fireworkCount).animate({right: "40%", opacity: "0"}, flameTime / 2, "linear");
+        $("#up-item" + fireworkCount).animate({ top: "0%" }, uptime, "linear");
+        $("#up-item" + fireworkCount).animate({ opacity: "0" }, 0, "linear");
+
+        $(".fire-item" + fireworkCount).animate({ right: "100%" }, uptime, "linear");
+        $(".fire-item" + fireworkCount).animate({ right: "70%" }, flameTime / 2, "linear");
+        $(".fire-item" + fireworkCount).animate({ right: "40%", opacity: "0" }, flameTime / 2, "linear");
 
         fireworkCount += 1;
     }

@@ -27,22 +27,28 @@ function initScreen()
     var screenWidth = window.innerWidth;
     var screenHeight = window.innerHeight;
 
-    $("#body").css("width", screenWidth);
-    $("#body").css("height", screenHeight);
+    $("#body").css({
+        "width": screenWidth,
+        "height": screenHeight
+    });
 
     if (screenWidth / screenHeight > containerProportion)
     {
-        $("#container").css("height", "100%");
-        $("#container").css("width", screenHeight * containerProportion + "px");
-        $("#container").css("top", "0px");
-        $("#container").css("left", (screenWidth - screenHeight * containerProportion) / 2 + "px");
+        $("#container").css({
+            "height": "100%",
+            "width": screenHeight * containerProportion + "px",
+            "top": "0px",
+            "left": (screenWidth - screenHeight * containerProportion) / 2 + "px"
+        });
     }
     else
     {
-        $("#container").css("width", "100%");
-        $("#container").css("height", screenWidth / containerProportion + "px");
-        $("#container").css("left", "0px");
-        $("#container").css("top", (screenHeight - screenWidth / containerProportion) / 2 + "px");
+        $("#container").css({
+            "width": "100%",
+            "height": screenWidth / containerProportion + "px",
+            "left": "0px",
+            "top": (screenHeight - screenWidth / containerProportion) / 2 + "px"
+        });
     }
 }
 
@@ -51,17 +57,21 @@ function initAlert()
     var width = $("#window").width();
     var height = $("#window").height();
 
-    $("#alert").css("width", width + "px");
-    $("#alert").css("height", height + "px");
-    $("#alert").css("margin-top", -height / 2 + "px");
-    $("#alert").css("margin-left", -width / 2 + "px");
+    $("#alert").css({
+        "width": width + "px",
+        "height": height + "px",
+        "margin-top": -height / 2 + "px",
+        "margin-left": -width / 2 + "px"
+    });
 
-    $("#exit").css("width", height / 10 + "px");
-    $("#exit").css("height", height / 10 + "px");
-    $("#exit").css("top", height * 0.03 + "px");
-    $("#exit").css("right", height * 0.03 + "px");
-    $("#exit").css("line-height" ,height / 10 + "px");
-    $("#exit").css("font-size", height / 13 + "px");
+    $("#exit").css({
+        "width": height / 10 + "px",
+        "height": height / 10 + "px",
+        "top": height * 0.03 + "px",
+        "right": height * 0.03 + "px",
+        "line-height": height / 10 + "px",
+        "font-size": height / 11 + "px"
+    });
 }
 
 function initFont()
@@ -71,7 +81,7 @@ function initFont()
 
     $("#text").css("font-size", textHeight * 0.07 + "px");
     $(".button").css("font-size", buttonHeight * 0.4 + "px");
-    $("#inform").css("font-size", textHeight / 13 + "px");
+    $("#inform").css("font-size", textHeight / 14 + "px");
 }
 
 function buttonOnClick(name, mouse)
@@ -81,18 +91,37 @@ function buttonOnClick(name, mouse)
 
     $(name).stop();
     $(name).stop();
-    $(name).css("left", "0px");
-    $(name).css("top", "0px");
-    $(name).css("width", "0px");
-    $(name).css("height", "0px");
-    $(name).css("margin-top", "0px");
-    $(name).css("margin-left", "0px");
-    $(name).css("background-color", "#EE82EE");
-    $(name).css("left", mouse.offsetX + "px");
-    $(name).css("top", mouse.offsetY + "px");
-    $(name).show();
-    $(name).animate({width: radiusWidth/2 + "px", height: radiusWidth/2 + "px", marginTop: -radiusWidth/4 + "px", marginLeft: -radiusWidth/4 + "px"}, activeTime / 2, "linear");
-    $(name).animate({width: radiusWidth + "px", height: radiusWidth + "px", marginTop: -radiusWidth/2 + "px", marginLeft: -radiusWidth/2 + "px", backgroundColor: "#EE82EE00"}, activeTime / 2, "linear");
+
+    $(name).css({
+        "left": "0px",
+        "top": "0px",
+        "width": "0px",
+        "height": "0px",
+        "margin-top": "0px",
+        "margin-left": "0px",
+        "opacity": "1",
+        "background-image": "radial-gradient(circle, #FF149360, #FF1493A0, #FF149360)"
+    });
+    
+    $(name).css({
+        "left": mouse.offsetX + "px",
+        "top": mouse.offsetY + "px"
+    });
+
+    $(name).animate({
+        width: radiusWidth / 2 + "px",
+        height: radiusWidth / 2 + "px",
+        marginTop: -radiusWidth / 4 + "px",
+        marginLeft: -radiusWidth / 4 + "px"
+    }, activeTime / 2, "linear");
+
+    $(name).animate({
+        width: radiusWidth + "px",
+        height: radiusWidth + "px",
+        marginTop: -radiusWidth / 2 + "px",
+        marginLeft: -radiusWidth / 2 + "px",
+        opacity: "0"
+    }, activeTime / 2, "linear");  
 }
 
 function changeText()
@@ -155,16 +184,35 @@ function addMeteor()
         var time = meteorTimeStandard * range;
 
         $("#body").append("<div class='meteor' id='meteor" + meteorCount + "'></div>");
-        $("#meteor" + meteorCount).css("top", top + "%");
-        $("#meteor" + meteorCount).css("right", right + "%");
-        $(".meteor").css("width", height / 4 + "px");
-        $(".meteor").css("height", height / 80 + "px");
-        $(".meteor").css("border-top-left-radius", height / 80 + "px");
-        $(".meteor").css("border-bottom-left-radius", height / 80 + "px");
 
-        $("#meteor" + meteorCount).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "1"}, time / 3, "linear");
-        $("#meteor" + meteorCount).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px"}, time / 3,"linear");
-        $("#meteor" + meteorCount).animate({top: "+=" + distance / 3 + "px", right: "+=" + distance / 3 + "px", opacity: "0"}, time / 3, "linear");
+        $("#meteor" + meteorCount).css({
+            "top": top + "%",
+            "right": right + "%"
+        });
+
+        $(".meteor").css({
+            "width": height / 4 + "px",
+            "height": height / 80 + "px",
+            "border-top-left-radius": height / 80 + "px",
+            "border-bottom-left-radius": height / 80 + "px"
+        });
+
+        $("#meteor" + meteorCount).animate({
+            top: "+=" + distance / 3 + "px",
+            right: "+=" + distance / 3 + "px",
+            opacity: "1"
+        }, time / 3, "linear");
+
+        $("#meteor" + meteorCount).animate({
+            top: "+=" + distance / 3 + "px",
+            right: "+=" + distance / 3 + "px"
+        }, time / 3,"linear");
+
+        $("#meteor" + meteorCount).animate({
+            top: "+=" + distance / 3 + "px",
+            right: "+=" + distance / 3 + "px",
+            opacity: "0"
+        }, time / 3, "linear");
 
         meteorCount += 1;
     }
@@ -175,6 +223,7 @@ function main()
     initScreen();
     initAlert();
     initFont();
+
     $("#hide").remove();
 
     setInterval(function()
