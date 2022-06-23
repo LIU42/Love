@@ -29,6 +29,11 @@ function initScreen()
         "height": screenHeight
     });
 
+    $(".heart").css({
+        "width": screenHeight / 5 + "px",
+        "height": screenHeight / 5 + "px"
+    });
+
     if (screenWidth / screenHeight > containerProportion)
     {
         $("#container").css({
@@ -49,43 +54,52 @@ function initScreen()
     }
 }
 
+function initWindow()
+{
+    var windowHeight = $("#window").height();
+    var buttonHeight = $(".button").height();
+
+    $(".button").css({
+        "border-radius": buttonHeight / 5 + "px",
+        "border-width": buttonHeight / 12 + "px",
+        "font-size": buttonHeight * 0.4 + "px"
+    });
+
+    $("#window").css({ "border-radius": windowHeight / 25 + "px" });
+    $("#text").css({ "font-size": windowHeight * 0.07 + "px" });
+}
+
 function initAlert()
 {
-    var width = $("#window").width();
-    var height = $("#window").height();
+    var windowWidth = $("#window").width();
+    var windowHeight = $("#window").height();
 
     $("#alert").css({
-        "width": width + "px",
-        "height": height + "px",
-        "margin-top": -height / 2 + "px",
-        "margin-left": -width / 2 + "px"
+        "width": windowWidth + "px",
+        "height": windowHeight + "px",
+        "margin-top": -windowHeight / 2 + "px",
+        "margin-left": -windowWidth / 2 + "px",
+        "border-radius": windowHeight / 25 + "px",
+        "box-shadow": windowHeight / 25 + "px " + windowHeight / 25 + "px " + windowHeight / 25 + "px #00000040"
     });
 
     $("#exit").css({
-        "width": height * 0.1 + "px",
-        "height": height * 0.1 + "px",
-        "top": height * 0.03 + "px",
-        "right": height * 0.03 + "px",
-        "line-height": height / 10 + "px",
-        "font-size": height / 11 + "px"
+        "width": windowHeight / 10 + "px",
+        "height": windowHeight / 10 + "px",
+        "top": windowHeight * 0.03 + "px",
+        "right": windowHeight * 0.03 + "px",
+        "line-height": windowHeight / 10 + "px",
+        "font-size": windowHeight / 11 + "px"
     });
 
     $("#exit-img").css({
-        "width": height * 0.06 + "px",
-        "height": height * 0.06 + "px",
-        "margin-top": -height * 0.03 + "px",
-        "margin-left": -height * 0.03 + "px"
+        "width": windowHeight * 0.06 + "px",
+        "height": windowHeight * 0.06 + "px",
+        "margin-top": -windowHeight * 0.03 + "px",
+        "margin-left": -windowHeight * 0.03 + "px"
     });
-}
 
-function initFont()
-{
-    var textHeight = $("#window").height();
-    var buttonHeight = $(".button").height();
-
-    $("#text").css({ "font-size": textHeight * 0.07 + "px" });
-    $(".button").css({ "font-size": buttonHeight * 0.4 + "px" });
-    $("#inform").css({ "font-size": textHeight / 13 + "px" });
+    $("#inform").css({ "font-size": windowHeight / 13 + "px" });
 }
 
 function buttonClickEffect(name, mouse)
@@ -93,10 +107,13 @@ function buttonClickEffect(name, mouse)
     var buttonWidth = $("#yes").width();
     var radiusWidth = buttonWidth * activeProportion;
 
+    $(name + "-circle").stop();
+    $(name + "-circle").stop();
+
     $(name).stop();
     $(name).stop();
 
-    $(name).css({
+    $(name + "-circle").css({
         "width": "0px",
         "height": "0px",
         "margin-top": "0px",
@@ -107,20 +124,23 @@ function buttonClickEffect(name, mouse)
         "top": mouse.offsetY + "px"
     });
 
-    $(name).animate({
+    $(name + "-circle").animate({
         width: radiusWidth / 2 + "px",
         height: radiusWidth / 2 + "px",
         marginTop: -radiusWidth / 4 + "px",
         marginLeft: -radiusWidth / 4 + "px"
     }, activeTime / 2, "linear");
 
-    $(name).animate({
+    $(name + "-circle").animate({
         width: radiusWidth + "px",
         height: radiusWidth + "px",
         marginTop: -radiusWidth / 2 + "px",
         marginLeft: -radiusWidth / 2 + "px",
         opacity: "0"
-    }, activeTime / 2, "linear");  
+    }, activeTime / 2, "linear");
+
+    $(name).animate({ borderColor: "#FF149340" }, activeTime * 0.25, "linear");
+    $(name).animate({ borderColor: "#FF149300" }, activeTime * 0.75, "linear");
 }
 
 function changeText()
@@ -218,14 +238,14 @@ function buttonNoClick(mouse)
 {
     clickStatus = "no";
     clickTime += 1;
-    buttonClickEffect("#no-circle", mouse);
+    buttonClickEffect("#no", mouse);
     changeText();
 }
 
 function buttonYesClick(mouse)
 {
     clickStatus = "yes";
-    buttonClickEffect("#yes-circle", mouse);
+    buttonClickEffect("#yes", mouse);
     $("#inform").html("就知道你一定会同意的!");
     $("#dark").fadeIn(alertChangeTime);
 }
@@ -251,8 +271,8 @@ function buttonExitMouseLeave()
 function main()
 {
     initScreen();
+    initWindow();
     initAlert();
-    initFont();
 
     $("#hide").remove();
 
