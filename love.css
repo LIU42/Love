@@ -168,6 +168,13 @@ button:focus { outline: 0; }
     text-align: center;
 }
 
+#exit-img
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 #inform
 {
     width: 100%;
@@ -192,6 +199,7 @@ button:focus { outline: 0; }
     border-top-right-radius: 70%;
     border-bottom-right-radius: 70%;
     transform: rotate(-45deg);
+    z-index: -1;
 }
 
 #hide

@@ -19,9 +19,6 @@ var meteorCount = 0;
 var meteorAppendTime = 150;
 var meteorTimeStandard = 2500;
 
-var buttonStatus = "normal";
-var buttonBrokenTime = 2500;
-
 function initScreen()
 {
     var screenWidth = window.innerWidth;
@@ -65,12 +62,19 @@ function initAlert()
     });
 
     $("#exit").css({
-        "width": height / 10 + "px",
-        "height": height / 10 + "px",
+        "width": height * 0.1 + "px",
+        "height": height * 0.1 + "px",
         "top": height * 0.03 + "px",
         "right": height * 0.03 + "px",
         "line-height": height / 10 + "px",
         "font-size": height / 11 + "px"
+    });
+
+    $("#exit-img").css({
+        "width": height * 0.06 + "px",
+        "height": height * 0.06 + "px",
+        "margin-top": -height * 0.03 + "px",
+        "margin-left": -height * 0.03 + "px"
     });
 }
 
@@ -79,12 +83,12 @@ function initFont()
     var textHeight = $("#window").height();
     var buttonHeight = $(".button").height();
 
-    $("#text").css("font-size", textHeight * 0.07 + "px");
-    $(".button").css("font-size", buttonHeight * 0.4 + "px");
-    $("#inform").css("font-size", textHeight / 14 + "px");
+    $("#text").css({ "font-size": textHeight * 0.07 + "px" });
+    $(".button").css({ "font-size": buttonHeight * 0.4 + "px" });
+    $("#inform").css({ "font-size": textHeight / 13 + "px" });
 }
 
-function buttonOnClick(name, mouse)
+function buttonClickEffect(name, mouse)
 {
     var buttonWidth = $("#yes").width();
     var radiusWidth = buttonWidth * activeProportion;
@@ -93,17 +97,12 @@ function buttonOnClick(name, mouse)
     $(name).stop();
 
     $(name).css({
-        "left": "0px",
-        "top": "0px",
         "width": "0px",
         "height": "0px",
         "margin-top": "0px",
         "margin-left": "0px",
         "opacity": "1",
-        "background-image": "radial-gradient(circle, #FF149360, #FF1493A0, #FF149360)"
-    });
-    
-    $(name).css({
+        "background-image": "radial-gradient(circle, #FF149360, #FF1493A0, #FF149360)",
         "left": mouse.offsetX + "px",
         "top": mouse.offsetY + "px"
     });
@@ -128,39 +127,33 @@ function changeText()
 {
     if (textCode <= 10)
     {
+        setTimeout(switchText, textChangeTime);
         $("#text").fadeOut(textChangeTime);
-		setTimeout(function()
-        {
-            text = document.getElementById("text");
-            switch (textCode)
-            {
-                case 1: text.innerHTML = "你的出现<br>是上天给我最好的礼物"; break;
-                case 2: text.innerHTML = "每天要做的事:<ul><li>想你想你~</li><li>爱你爱你~</li></ul>"; break;
-                case 3: text.innerHTML = "永远给你最好的!"; break;
-                case 4: text.innerHTML = "春风十里不如你~"; break;
-                case 5: text.innerHTML = "愿得一人心<br>白首不相离"; break;
-                case 6: text.innerHTML = "斯人若彩虹<br>遇上方知有"; break;
-                case 7: text.innerHTML = "你的过去<br>我来不及参与<br>你的未来<br>我奉陪到底"; break;
-                case 8: text.innerHTML = "答案很长<br>我准备用余生的时间<br>给你答案"; break;
-                case 9: text.innerHTML = "不说分手~"; break;
-                default: text.innerHTML = "好不好嘛~"; break;
-            }
-            textCode += 1;
-        },textChangeTime);
 		$("#text").fadeIn(textChangeTime);
-    }
-    else if (clickTime > 99)
-    {
-        buttonStatus = "broken";
-        $("#no").animate({backgroundColor: "#AAAAAAAA", color: "#AAAAAA00"}, buttonBrokenTime);
-        $("#inform").html("按钮被你按坏啦!");
-        $("#dark").fadeIn(alertChangeTime);
     }
     else
     {
         $("#inform").html("哼! 你不同意我就赖着不走了~");
         $("#dark").fadeIn(alertChangeTime);
     }
+}
+
+function switchText()
+{
+    switch (textCode)
+    {
+        case 1:  $("#text").html("你的出现<br>是上天给我最好的礼物"); break;
+        case 2:  $("#text").html("每天要做的事:<ul><li>想你想你~</li><li>爱你爱你~</li></ul>"); break;
+        case 3:  $("#text").html("永远给你最好的!"); break;
+        case 4:  $("#text").html("春风十里不如你~"); break;
+        case 5:  $("#text").html("愿得一人心<br>白首不相离"); break;
+        case 6:  $("#text").html("斯人若彩虹<br>遇上方知有"); break;
+        case 7:  $("#text").html("你的过去<br>我来不及参与<br>你的未来<br>我奉陪到底"); break;
+        case 8:  $("#text").html("答案很长<br>我准备用余生的时间<br>给你答案"); break;
+        case 9:  $("#text").html("不说分手~"); break;
+        default: $("#text").html("好不好嘛~"); break;
+    }
+    textCode += 1;
 }
 
 function removeMeteor()
@@ -186,15 +179,12 @@ function addMeteor()
         $("#body").append("<div class='meteor' id='meteor" + meteorCount + "'></div>");
 
         $("#meteor" + meteorCount).css({
-            "top": top + "%",
-            "right": right + "%"
-        });
-
-        $(".meteor").css({
             "width": height / 4 + "px",
             "height": height / 80 + "px",
             "border-top-left-radius": height / 80 + "px",
-            "border-bottom-left-radius": height / 80 + "px"
+            "border-bottom-left-radius": height / 80 + "px",
+            "top": top + "%",
+            "right": right + "%"
         });
 
         $("#meteor" + meteorCount).animate({
@@ -218,6 +208,46 @@ function addMeteor()
     }
 }
 
+function meteorInterval()
+{
+    addMeteor();
+    removeMeteor();
+}
+
+function buttonNoClick(mouse)
+{
+    clickStatus = "no";
+    clickTime += 1;
+    buttonClickEffect("#no-circle", mouse);
+    changeText();
+}
+
+function buttonYesClick(mouse)
+{
+    clickStatus = "yes";
+    buttonClickEffect("#yes-circle", mouse);
+    $("#inform").html("就知道你一定会同意的!");
+    $("#dark").fadeIn(alertChangeTime);
+}
+
+function buttonExitClick()
+{
+    $("#dark").fadeOut(alertChangeTime);
+    if (clickStatus == "yes") { window.open("fireworks.html","_self"); }
+}
+
+function buttonExitHover()
+{
+    $("#exit").stop();
+    $("#exit").animate({ backgroundColor: "#FF0000FF" }, exitChangeTime);
+}
+
+function buttonExitMouseLeave()
+{
+    $("#exit").stop();
+    $("#exit").animate({ backgroundColor: "#FFFFFF00" }, exitChangeTime);
+}
+
 function main()
 {
     initScreen();
@@ -226,46 +256,12 @@ function main()
 
     $("#hide").remove();
 
-    setInterval(function()
-    {
-        addMeteor();
-        removeMeteor();
-    }, meteorAppendTime);
+    $("#no").click(buttonNoClick);
+    $("#yes").click(buttonYesClick);
 
-    $("#no").click(function(mouse)
-    {
-        clickStatus = "no";
-        if (buttonStatus == "normal")
-        {
-            buttonOnClick("#no-circle", mouse);
-            changeText();
-            clickTime += 1;
-        }
-    });
+    $("#exit").click(buttonExitClick);
+    $("#exit").hover(buttonExitHover);
+    $("#exit").mouseleave(buttonExitMouseLeave);
 
-    $("#yes").click(function(mouse)
-    {
-        buttonOnClick("#yes-circle", mouse);
-        clickStatus = "yes";
-        $("#inform").html("就知道你一定会同意的!");
-        $("#dark").fadeIn(alertChangeTime);
-    });
-
-    $("#exit").hover(function()
-    {
-        $("#exit").stop();
-        $("#exit").animate({backgroundColor: "#FF0000"}, exitChangeTime);
-    });
-
-    $("#exit").mouseleave(function()
-    {
-        $("#exit").stop();
-        $("#exit").animate({backgroundColor: "#FFFFFF00"}, exitChangeTime);
-    });
-
-    $("#exit").click(function()
-    {
-        $("#dark").fadeOut(alertChangeTime);
-        if (clickStatus == "yes") { window.open("fireworks.html","_self"); }
-    });
+    setInterval(meteorInterval, meteorAppendTime);
 }

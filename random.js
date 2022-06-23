@@ -1,4 +1,8 @@
-function random() { return Math.random(); }
+function random()
+{
+    ans = Math.random();
+    return ans;
+}
 
 function randInt(min, max)
 {
@@ -8,15 +12,15 @@ function randInt(min, max)
     return ans;
 }
 
-function randFloat(min, max, prec)
+function randFloat(min, max)
 {
     ans = Math.random() * (max - min) + min;
-    ans = ans.toFixed(prec);
     return ans;
 }
 
 function randChoice(arr)
 {
     count = randInt(0, arr.length);
-    return arr[count];
+    ans = arr[count];
+    return ans;
 }
