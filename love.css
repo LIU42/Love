@@ -152,10 +152,10 @@ button:focus { outline: 0; }
 
 #exit
 {
-    display: block;
     position: absolute;
     border: 0px;
     border-radius: 50%;
+    padding: 0px;
     background-color: #FFFFFF00;
     color: #000000;
     line-height: 100%;
