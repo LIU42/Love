@@ -2,16 +2,15 @@ var containerProportion = 0.75;
 var containerWidth = 750;
 var containerHeight = 1000;
 
-var textCode = 1;
-var textChangeTime = 200;
-
-var activeTime = 1000;
-var activeProportion = 3.5;
+var activeTime = 800;
+var activeProportion = 2.5;
 var alertChangeTime = 200;
 var exitChangeTime = 200;
 
 var clickStatus = "no";
 var clickTime = 0;
+var textCode = 1;
+var textChangeTime = 200;
 
 var pMeteor = 0.08;
 var meteorOnScreen = 8
@@ -61,7 +60,6 @@ function initWindow()
 
     $(".button").css({
         "border-radius": buttonHeight / 5 + "px",
-        "border-width": buttonHeight / 12 + "px",
         "font-size": buttonHeight * 0.4 + "px"
     });
 
@@ -119,7 +117,7 @@ function buttonClickEffect(name, mouse)
         "margin-top": "0px",
         "margin-left": "0px",
         "opacity": "1",
-        "background-image": "radial-gradient(circle, #FF149360, #FF1493A0, #FF149360)",
+        "background-image": "radial-gradient(circle, #FF149360, #FF1493B0, #FF149360)",
         "left": mouse.offsetX + "px",
         "top": mouse.offsetY + "px"
     });
@@ -139,8 +137,8 @@ function buttonClickEffect(name, mouse)
         opacity: "0"
     }, activeTime / 2, "linear");
 
-    $(name).animate({ borderColor: "#FF149340" }, activeTime * 0.25, "linear");
-    $(name).animate({ borderColor: "#FF149300" }, activeTime * 0.75, "linear");
+    $(name).animate({ backgroundColor: "#DE63BCAA" }, activeTime * 0.25, "linear");
+    $(name).animate({ backgroundColor: "#EE82EEAA" }, activeTime * 0.75, "linear");
 }
 
 function changeText()
